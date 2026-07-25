@@ -65,7 +65,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      gap: 8px;
+      gap: 4px;
     }
     .hero .avatar {
       width: 120px;
@@ -74,6 +74,14 @@
       border: 4px solid var(--blue);
       object-fit: cover;
       box-shadow: 0 0 0 2px var(--red), 0 0 0 6px rgba(213,43,30,0.2);
+    }
+    .hero .contact-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--blue);
+      margin-top: 6px;
+      align-self: flex-end;
     }
     .hero .contacts-top {
       display: flex;
@@ -367,12 +375,63 @@
     }
     footer span { color: var(--red); }
 
+    /* ===== Стили для блока каналов (карточки) ===== */
+    .channels-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+    }
+    .channel-card {
+      background: var(--bg-card);
+      padding: 20px 30px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      color: var(--text-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      border-left: 4px solid var(--blue);
+      transition: 0.2s;
+      flex: 1 1 240px;
+      max-width: 400px;
+    }
+    .channel-card:hover {
+      transform: translateY(-4px);
+      border-left-color: var(--red);
+    }
+    .channel-card i {
+      font-size: 2.2rem;
+      color: var(--red);
+    }
+    .channel-card .info {
+      display: flex;
+      flex-direction: column;
+    }
+    .channel-card .info .name {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .channel-card .info .handle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    /* второй канал – другая обводка */
+    .channel-card.secondary {
+      border-left-color: var(--red);
+    }
+    .channel-card.secondary i {
+      color: var(--blue);
+    }
+
     @media (max-width: 768px) {
       .hero .container { flex-wrap: nowrap; gap: 15px; }
       .hero .left h1 { font-size: 1.8rem; }
       .hero .left h2 { font-size: 1.1rem; }
       .hero .left .subhead { font-size: 0.85rem; padding-left: 10px; border-left-width: 3px; }
       .hero .avatar { width: 90px; height: 90px; }
+      .hero .contact-label { font-size: 0.6rem; }
       .hero .contacts-top { font-size: 0.75rem; gap: 8px 12px; }
       .hero .contacts-top a { padding: 2px 10px; }
       .hero .btn-accent-small { font-size: 0.75rem; padding: 2px 10px; }
@@ -382,6 +441,7 @@
       .earn-banner .big-number { font-size: 2.2rem; }
       .btn-claim { font-size: 1.2rem; padding: 14px 30px; }
       .contacts-block .container { flex-direction: column; }
+      .channel-card { padding: 16px 20px; }
     }
     @media (max-width: 480px) {
       .hero .left h1 { font-size: 1.4rem; }
@@ -392,6 +452,7 @@
       .earn-banner h3 { font-size: 1.1rem; }
       .earn-banner .big-number { font-size: 1.8rem; }
       .btn-claim { font-size: 1rem; padding: 12px 20px; width: 100%; }
+      .channel-card { flex-direction: column; align-items: flex-start; gap: 8px; }
     }
   </style>
 </head>
@@ -406,6 +467,7 @@
       </div>
       <div class="right">
         <img src="4b9cbf1b-47b8-4e98-bcf3-e818e27035a7.jfif" alt="Иван Бурко" class="avatar" />
+        <div class="contact-label">Связь со мной</div>
         <div class="contacts-top">
           <a href="tel:+79529155586"><i class="fas fa-phone-alt"></i> +7 (952) 915-55-86</a>
           <a href="https://t.me/Ivan_Burko" target="_blank"><i class="fab fa-telegram-plane"></i> @Ivan_Burko</a>
@@ -417,6 +479,30 @@
     </div>
   </header>
 
+  <!-- ===== БЛОК "МОИ КАНАЛЫ" – ПЕРЕНЕСЁН ВВЕРХ (СРАЗУ ПОСЛЕ ШАПКИ) ===== -->
+  <section style="padding: 30px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
+    <div class="container">
+      <div class="section-title"><i class="fas fa-bullhorn"></i> Мои каналы</div>
+      <div class="channels-grid">
+        <a href="https://t.me/Novostroiki_NSK_Ivan_Burko" target="_blank" class="channel-card">
+          <i class="fab fa-telegram-plane"></i>
+          <div class="info">
+            <span class="name">Telegram-канал</span>
+            <span class="handle">@Novostroiki_NSK_Ivan_Burko</span>
+          </div>
+        </a>
+        <a href="https://max.ru/id750600259101_biz" target="_blank" class="channel-card secondary">
+          <i class="fas fa-user-circle"></i>
+          <div class="info">
+            <span class="name">MAX-профиль</span>
+            <span class="handle">id750600259101_biz</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== БЛОК 1: КТО Я? ===== -->
   <section>
     <div class="container">
       <div class="section-title"><i class="fas fa-user-tie"></i> Кто я?</div>
@@ -435,6 +521,7 @@
     </div>
   </section>
 
+  <!-- ===== БЛОК 2: НАПРАВЛЕНИЯ ===== -->
   <section style="background: rgba(255,255,255,0.02);">
     <div class="container">
       <div class="section-title"><i class="fas fa-compass"></i> Направления</div>
@@ -445,6 +532,7 @@
     </div>
   </section>
 
+  <!-- ===== БЛОК 3: ОБЪЕКТЫ ===== -->
   <section>
     <div class="container">
       <div class="section-title"><i class="fas fa-building"></i> Объекты</div>
@@ -458,6 +546,7 @@
     </div>
   </section>
 
+  <!-- ===== БЛОК 4: УСЛУГИ ===== -->
   <section style="background: rgba(255,255,255,0.02);">
     <div class="container">
       <div class="section-title"><i class="fas fa-hand-holding-heart"></i> Услуги</div>
@@ -470,6 +559,7 @@
     </div>
   </section>
 
+  <!-- ===== БЛОК 5: ПРЕИМУЩЕСТВА ===== -->
   <section>
     <div class="container">
       <div class="section-title"><i class="fas fa-star"></i> Преимущества работы</div>
@@ -498,25 +588,8 @@
     </div>
   </section>
 
+  <!-- ===== БЛОК 6: КАК ВЫ МОЖЕТЕ ЗАРАБОТАТЬ? ===== -->
   <section style="background: rgba(255,255,255,0.02);">
-    <div class="container">
-      <div class="section-title"><i class="fas fa-bullhorn"></i> Мои каналы</div>
-      <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center;">
-        <a href="https://t.me/Novostroiki_NSK_Ivan_Burko" target="_blank" style="background: var(--bg-card); padding: 20px 30px; border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; color: var(--text-light); display: inline-flex; align-items: center; gap: 14px; border-left: 4px solid var(--blue); transition: 0.2s;">
-          <i class="fab fa-telegram-plane" style="font-size: 2.2rem; color: var(--red);"></i>
-          <span style="font-size: 1.2rem; font-weight: 600;">Telegram-канал</span>
-          <span style="color: var(--text-muted); font-size: 0.9rem;">@Novostroiki_NSK_Ivan_Burko</span>
-        </a>
-        <a href="https://max.ru/id750600259101_biz" target="_blank" style="background: var(--bg-card); padding: 20px 30px; border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; color: var(--text-light); display: inline-flex; align-items: center; gap: 14px; border-left: 4px solid var(--red); transition: 0.2s;">
-          <i class="fas fa-user-circle" style="font-size: 2.2rem; color: var(--blue);"></i>
-          <span style="font-size: 1.2rem; font-weight: 600;">MAX-профиль</span>
-          <span style="color: var(--text-muted); font-size: 0.9rem;">id750600259101_biz</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section>
     <div class="container">
       <div class="section-title"><i class="fas fa-coins"></i> Как Вы можете заработать?</div>
       <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 25px;">
@@ -542,7 +615,8 @@
     </div>
   </section>
 
-  <section style="background: rgba(255,255,255,0.02);">
+  <!-- ===== БЛОК 7: КАК РАССЧИТЫВАЕТСЯ ВОЗНАГРАЖДЕНИЕ? ===== -->
+  <section>
     <div class="container">
       <div class="section-title"><i class="fas fa-calculator"></i> Как рассчитывается вознаграждение?</div>
       <div class="table-wrap">
@@ -563,7 +637,8 @@
     </div>
   </section>
 
-  <section>
+  <!-- ===== БЛОК 8: ГДЕ ВЗЯТЬ КЛИЕНТОВ? ===== -->
+  <section style="background: rgba(255,255,255,0.02);">
     <div class="container">
       <div class="section-title"><i class="fas fa-users"></i> Где взять клиентов?</div>
       <div style="background: var(--bg-card); padding: 25px 30px; border-radius: var(--radius); box-shadow: var(--shadow); border-left: 6px solid var(--blue);">
@@ -583,7 +658,8 @@
     </div>
   </section>
 
-  <section style="background: rgba(255,255,255,0.02);">
+  <!-- ===== БЛОК 9: ПРИМЕРЫ ЗАРАБОТКА ===== -->
+  <section>
     <div class="container">
       <div class="section-title"><i class="fas fa-rocket"></i> Примеры заработка</div>
       <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 25px;">Всё зависит от вашей активности. Потолка нет!</p>
@@ -610,6 +686,7 @@
     </div>
   </section>
 
+  <!-- ===== БЛОК 10: ОСТАВИТЬ ЗАЯВКУ ===== -->
   <section style="background: rgba(255,255,255,0.02);">
     <div class="container">
       <div class="section-title"><i class="fas fa-pen-alt"></i> Оставить заявку</div>
@@ -627,6 +704,7 @@
     </div>
   </section>
 
+  <!-- ===== БЛОК 11: КОНТАКТЫ (с разделением) ===== -->
   <section style="padding-bottom: 30px;">
     <div class="container">
       <div class="section-title"><i class="fas fa-address-card"></i> Контакты</div>
