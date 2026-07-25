@@ -6,7 +6,6 @@
   <title>Иван Бурко – эксперт по недвижимости</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
-    /* ===== ЦВЕТА ===== */
     :root {
       --bg-dark: #0b0e14;
       --bg-card: #1a1f2a;
@@ -27,7 +26,6 @@
     }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-    /* ===== ШАПКА ===== */
     .hero {
       background: linear-gradient(145deg, #121824, #0b0e14);
       padding: 25px 0 20px;
@@ -46,10 +44,12 @@
       font-size: 2.6rem;
       font-weight: 700;
       letter-spacing: 1px;
-      color: var(--white);
+      color: var(--white); /* всё белое */
       line-height: 1.2;
     }
-    .hero .left h1 span { color: var(--blue); }
+    .hero .left h1 span { 
+      color: var(--white); /* было синим, теперь белый */
+    }
     .hero .left h2 {
       font-size: 1.5rem;
       font-weight: 400;
@@ -111,7 +111,6 @@
     }
     .hero .btn-accent-small:hover { background: var(--red); border-color: var(--blue); }
 
-    /* ===== СЕКЦИИ ===== */
     section { padding: 50px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
     section:last-of-type { border-bottom: none; }
     .section-title {
@@ -179,7 +178,6 @@
     .card h3 { font-size: 1.2rem; margin-bottom: 8px; color: var(--white); }
     .card p { color: var(--text-muted); font-size: 0.98rem; }
 
-    /* ===== ТАБЛИЦА ===== */
     .table-wrap {
       background: var(--bg-card);
       border-radius: var(--radius);
@@ -218,7 +216,6 @@
     }
     .note i { color: var(--red); margin-right: 10px; }
 
-    /* ===== БАННЕР ===== */
     .earn-banner {
       background: linear-gradient(135deg, rgba(0,57,166,0.2), rgba(213,43,30,0.1));
       border: 1px solid var(--blue);
@@ -233,7 +230,6 @@
     .earn-banner .big-number { font-size: 3rem; font-weight: 900; color: var(--red); text-shadow: 0 0 20px rgba(213,43,30,0.3); }
     .earn-banner .sub { font-size: 1.1rem; color: var(--text-muted); margin-top: 6px; }
 
-    /* ===== КНОПКА ЗАЯВКИ ===== */
     .btn-claim {
       display: inline-block;
       background: var(--blue);
@@ -253,7 +249,6 @@
       transform: scale(1.02);
     }
 
-    /* ===== КОНТАКТЫ ВНИЗУ ===== */
     .contacts-block {
       background: var(--bg-card);
       color: var(--text-light);
@@ -274,7 +269,9 @@
       font-weight: 700;
       color: var(--white);
     }
-    .contacts-block .info .name span { color: var(--blue); }
+    .contacts-block .info .name span { 
+      color: var(--white); /* было синим, теперь белый */
+    }
     .contacts-block .info .title {
       opacity: 0.8;
       font-size: 1rem;
@@ -329,7 +326,6 @@
     }
     footer span { color: var(--red); }
 
-    /* ===== АДАПТИВ ===== */
     @media (max-width: 768px) {
       .hero .container { flex-wrap: nowrap; gap: 15px; }
       .hero .left h1 { font-size: 1.8rem; }
@@ -359,7 +355,6 @@
 </head>
 <body>
 
-  <!-- ===== ШАПКА ===== -->
   <header class="hero">
     <div class="container">
       <div class="left">
@@ -368,7 +363,6 @@
         <div class="subhead">Эксперт по недвижимости | г. Новосибирск</div>
       </div>
       <div class="right">
-        <!-- ФОТО (имя файла – ваше) -->
         <img src="4b9cbf1b-47b8-4e98-bcf3-e818e27035a7.jfif" alt="Иван Бурко" class="avatar" />
         <div class="contacts-top">
           <a href="tel:+79529155586"><i class="fas fa-phone-alt"></i> +7 (952) 915-55-86</a>
