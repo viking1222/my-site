@@ -297,7 +297,7 @@
       }
     }
 
-    /* ===== КОНТАКТЫ ВНИЗУ ===== */
+    /* ===== КОНТАКТЫ ВНИЗУ (разделены) ===== */
     .contacts-block {
       background: var(--bg-card);
       color: var(--text-light);
@@ -310,45 +310,42 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      align-items: center;
-      gap: 20px;
+      align-items: flex-start;
+      gap: 30px;
     }
-    .contacts-block .info .name {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--white);
+    .contacts-block .col {
+      flex: 1 1 200px;
     }
-    .contacts-block .info .name span { color: var(--white); }
-    .contacts-block .info .title {
-      opacity: 0.8;
-      font-size: 1rem;
-      color: var(--text-muted);
+    .contacts-block .col .label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--blue);
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--red);
+      padding-bottom: 6px;
+      display: inline-block;
     }
-    .contacts-block .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px 30px;
-    }
-    .contacts-block .links a {
+    .contacts-block .col a {
+      display: block;
       color: var(--text-light);
       text-decoration: none;
       font-size: 1.05rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      padding: 6px 0;
       transition: 0.2s;
-      border-bottom: 2px solid transparent;
+      border-bottom: 1px solid transparent;
     }
-    .contacts-block .links a:hover {
+    .contacts-block .col a:hover {
       color: var(--blue);
       border-bottom-color: var(--red);
     }
-    .contacts-block .links i {
-      font-size: 1.3rem;
-      width: 24px;
+    .contacts-block .col a i {
+      width: 28px;
       color: var(--red);
+      margin-right: 8px;
     }
-    .contacts-block .links .btn-max {
+    .contacts-block .col .btn-max {
+      display: inline-block;
       background: var(--blue);
       color: white;
       padding: 6px 18px;
@@ -357,8 +354,9 @@
       text-decoration: none;
       transition: 0.2s;
       border: 1px solid var(--red);
+      margin-top: 6px;
     }
-    .contacts-block .links .btn-max:hover {
+    .contacts-block .col .btn-max:hover {
       background: var(--red);
       border-color: var(--blue);
     }
@@ -388,6 +386,7 @@
       .earn-banner h3 { font-size: 1.4rem; }
       .earn-banner .big-number { font-size: 2.2rem; }
       .btn-claim { font-size: 1.2rem; padding: 14px 30px; }
+      .contacts-block .container { flex-direction: column; }
     }
     @media (max-width: 480px) {
       .hero .left h1 { font-size: 1.4rem; }
@@ -413,15 +412,12 @@
       </div>
       <div class="right">
         <img src="4b9cbf1b-47b8-4e98-bcf3-e818e27035a7.jfif" alt="Иван Бурко" class="avatar" />
+        <!-- В шапке только личные контакты (связь со мной) -->
         <div class="contacts-top">
           <a href="tel:+79529155586"><i class="fas fa-phone-alt"></i> +7 (952) 915-55-86</a>
           <a href="https://t.me/Ivan_Burko" target="_blank"><i class="fab fa-telegram-plane"></i> @Ivan_Burko</a>
-          <a href="https://t.me/Novostroiki_NSK_Ivan_Burko" target="_blank"><i class="fab fa-telegram-plane"></i> Канал</a>
           <a href="https://max.ru/u/f9LHodD0cOIdLJNKd5da-SworHFECeqyQ1QqzqnMtKeEuCe5EXO3qX8h9BU" target="_blank" class="btn-accent-small">
             <i class="fas fa-external-link-alt"></i> MAX
-          </a>
-          <a href="https://max.ru/id750600259101_biz" target="_blank" class="btn-accent-small" style="background: var(--red); border-color: var(--blue);">
-            <i class="fas fa-user-circle"></i> MAX-профиль
           </a>
         </div>
       </div>
@@ -514,8 +510,27 @@
     </div>
   </section>
 
-  <!-- ===== БЛОК 6: КАК ВЫ МОЖЕТЕ ЗАРАБОТАТЬ? ===== -->
+  <!-- ===== БЛОК: МОИ КАНАЛЫ (новый раздел) ===== -->
   <section style="background: rgba(255,255,255,0.02);">
+    <div class="container">
+      <div class="section-title"><i class="fas fa-bullhorn"></i> Мои каналы</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center;">
+        <a href="https://t.me/Novostroiki_NSK_Ivan_Burko" target="_blank" style="background: var(--bg-card); padding: 20px 30px; border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; color: var(--text-light); display: inline-flex; align-items: center; gap: 14px; border-left: 4px solid var(--blue); transition: 0.2s;">
+          <i class="fab fa-telegram-plane" style="font-size: 2.2rem; color: var(--red);"></i>
+          <span style="font-size: 1.2rem; font-weight: 600;">Telegram-канал</span>
+          <span style="color: var(--text-muted); font-size: 0.9rem;">@Novostroiki_NSK_Ivan_Burko</span>
+        </a>
+        <a href="https://max.ru/id750600259101_biz" target="_blank" style="background: var(--bg-card); padding: 20px 30px; border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; color: var(--text-light); display: inline-flex; align-items: center; gap: 14px; border-left: 4px solid var(--red); transition: 0.2s;">
+          <i class="fas fa-user-circle" style="font-size: 2.2rem; color: var(--blue);"></i>
+          <span style="font-size: 1.2rem; font-weight: 600;">MAX-профиль</span>
+          <span style="color: var(--text-muted); font-size: 0.9rem;">id750600259101_biz</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== БЛОК 6: КАК ВЫ МОЖЕТЕ ЗАРАБОТАТЬ? ===== -->
+  <section>
     <div class="container">
       <div class="section-title"><i class="fas fa-coins"></i> Как Вы можете заработать?</div>
       <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 25px;">
@@ -542,7 +557,7 @@
   </section>
 
   <!-- ===== БЛОК 7: КАК РАССЧИТЫВАЕТСЯ ВОЗНАГРАЖДЕНИЕ? ===== -->
-  <section>
+  <section style="background: rgba(255,255,255,0.02);">
     <div class="container">
       <div class="section-title"><i class="fas fa-calculator"></i> Как рассчитывается вознаграждение?</div>
       <div class="table-wrap">
@@ -564,7 +579,7 @@
   </section>
 
   <!-- ===== БЛОК 8: ГДЕ ВЗЯТЬ КЛИЕНТОВ? ===== -->
-  <section style="background: rgba(255,255,255,0.02);">
+  <section>
     <div class="container">
       <div class="section-title"><i class="fas fa-users"></i> Где взять клиентов?</div>
       <div style="background: var(--bg-card); padding: 25px 30px; border-radius: var(--radius); box-shadow: var(--shadow); border-left: 6px solid var(--blue);">
@@ -585,7 +600,7 @@
   </section>
 
   <!-- ===== БЛОК 9: ПРИМЕРЫ ЗАРАБОТКА ===== -->
-  <section>
+  <section style="background: rgba(255,255,255,0.02);">
     <div class="container">
       <div class="section-title"><i class="fas fa-rocket"></i> Примеры заработка</div>
       <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 25px;">Всё зависит от вашей активности. Потолка нет!</p>
@@ -612,7 +627,7 @@
     </div>
   </section>
 
-  <!-- ===== БЛОК 10: ОСТАВИТЬ ЗАЯВКУ (в конце перед контактами) ===== -->
+  <!-- ===== БЛОК 10: ОСТАВИТЬ ЗАЯВКУ ===== -->
   <section style="background: rgba(255,255,255,0.02);">
     <div class="container">
       <div class="section-title"><i class="fas fa-pen-alt"></i> Оставить заявку</div>
@@ -630,23 +645,25 @@
     </div>
   </section>
 
-  <!-- ===== БЛОК 11: КОНТАКТЫ ===== -->
+  <!-- ===== БЛОК 11: КОНТАКТЫ (разделены на две группы) ===== -->
   <section style="padding-bottom: 30px;">
     <div class="container">
-      <div class="section-title"><i class="fas fa-address-card"></i> Мои контакты</div>
+      <div class="section-title"><i class="fas fa-address-card"></i> Контакты</div>
       <div class="contacts-block">
         <div class="container">
-          <div class="info">
-            <div class="name">БУРКО <span>ИВАН</span> АЛЕКСАНДРОВИЧ</div>
-            <div class="title">Эксперт по недвижимости | г. Новосибирск</div>
-          </div>
-          <div class="links">
+          <!-- Колонка "Связь со мной" -->
+          <div class="col">
+            <div class="label">📞 Связь со мной</div>
             <a href="tel:+79529155586"><i class="fas fa-phone-alt"></i> +7 (952) 915-55-86</a>
             <a href="https://t.me/Ivan_Burko" target="_blank"><i class="fab fa-telegram-plane"></i> @Ivan_Burko</a>
-            <a href="https://t.me/Novostroiki_NSK_Ivan_Burko" target="_blank"><i class="fab fa-telegram-plane"></i> Канал</a>
             <a href="https://max.ru/u/f9LHodD0cOIdLJNKd5da-SworHFECeqyQ1QqzqnMtKeEuCe5EXO3qX8h9BU" target="_blank" class="btn-max">
-              <i class="fas fa-external-link-alt"></i> MAX
+              <i class="fas fa-external-link-alt"></i> MAX (личный)
             </a>
+          </div>
+          <!-- Колонка "Мои каналы" -->
+          <div class="col">
+            <div class="label">📢 Мои каналы</div>
+            <a href="https://t.me/Novostroiki_NSK_Ivan_Burko" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram-канал</a>
             <a href="https://max.ru/id750600259101_biz" target="_blank" class="btn-max" style="background: var(--red); border-color: var(--blue);">
               <i class="fas fa-user-circle"></i> MAX-профиль
             </a>
@@ -660,7 +677,7 @@
     <div class="container">© 2026 <span>Иван Бурко</span>. Все права защищены.</div>
   </footer>
 
-  <!-- ===== ПЛАВАЮЩАЯ КНОПКА "ОСТАВИТЬ ЗАЯВКУ" (всегда внизу справа) ===== -->
+  <!-- ===== ПЛАВАЮЩАЯ КНОПКА ===== -->
   <a href="https://crm.ruspronet.ru/order" target="_blank" class="float-button">
     <i class="fas fa-pen-fancy"></i> Оставить заявку
   </a>
