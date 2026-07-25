@@ -6,6 +6,7 @@
   <title>Иван Бурко – эксперт по недвижимости</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
+    /* ===== ОСНОВНЫЕ ЦВЕТА (тёмная тема + триколор) ===== */
     :root {
       --bg-dark: #0b0e14;
       --bg-card: #1a1f2a;
@@ -17,6 +18,7 @@
       --shadow: 0 8px 24px rgba(0,0,0,0.5);
       --radius: 16px;
     }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
@@ -35,8 +37,8 @@
     }
     .hero .container {
       display: flex;
-      flex-wrap: nowrap;        /* не переносим на новую строку */
-      align-items: flex-start;  /* фото и текст прижаты к верху */
+      flex-wrap: nowrap;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 20px;
     }
@@ -51,9 +53,7 @@
       color: var(--white);
       line-height: 1.2;
     }
-    .hero .left h1 span {
-      color: var(--blue);
-    }
+    .hero .left h1 span { color: var(--blue); }
     .hero .left h2 {
       font-size: 1.5rem;
       font-weight: 400;
@@ -70,7 +70,7 @@
       flex: 0 0 auto;
       display: flex;
       flex-direction: column;
-      align-items: flex-end;   /* контакты выравниваем вправо */
+      align-items: flex-end;
       gap: 8px;
     }
     .hero .avatar {
@@ -125,7 +125,7 @@
       border-color: var(--blue);
     }
 
-    /* Остальные секции (без изменений, но оставлю для полноты) */
+    /* ===== ОБЩИЕ СТИЛИ СЕКЦИЙ ===== */
     section { padding: 50px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
     section:last-of-type { border-bottom: none; }
     .section-title {
@@ -154,6 +154,8 @@
       background: linear-gradient(90deg, var(--blue), var(--red), transparent);
       margin-left: 10px;
     }
+
+    /* ===== КАРТОЧКИ И СЕТКИ ===== */
     .grid-2col {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -184,6 +186,7 @@
       font-size: 1rem;
       color: var(--text-light);
     }
+
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -215,6 +218,75 @@
       color: var(--text-muted);
       font-size: 0.98rem;
     }
+
+    /* ===== ТАБЛИЦА ===== */
+    .table-wrap {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      overflow-x: auto;
+      box-shadow: var(--shadow);
+    }
+    .reward-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1rem;
+      min-width: 320px;
+    }
+    .reward-table th {
+      background: var(--blue);
+      color: white;
+      padding: 16px 20px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .reward-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: var(--text-light);
+    }
+    .reward-table tr:last-child td { border-bottom: none; }
+    .reward-table tr:hover td { background: rgba(255,255,255,0.04); }
+
+    .note {
+      margin-top: 20px;
+      background: rgba(0,57,166,0.15);
+      padding: 18px 24px;
+      border-radius: 12px;
+      border-left: 5px solid var(--red);
+      color: var(--text-light);
+    }
+    .note i { color: var(--red); margin-right: 10px; }
+
+    /* ===== БЛОК "ЗАРАБОТАЙ 30 000" ===== */
+    .earn-banner {
+      background: linear-gradient(135deg, rgba(0,57,166,0.2), rgba(213,43,30,0.1));
+      border: 1px solid var(--blue);
+      border-radius: var(--radius);
+      padding: 25px 30px;
+      margin-top: 20px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0,57,166,0.1);
+    }
+    .earn-banner h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .earn-banner h3 i { color: var(--red); margin-right: 12px; }
+    .earn-banner .big-number {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--red);
+      text-shadow: 0 0 20px rgba(213,43,30,0.3);
+    }
+    .earn-banner .sub {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* ===== КОНТАКТЫ ВНИЗУ ===== */
     .contacts-block {
       background: var(--bg-card);
       color: var(--text-light);
@@ -279,6 +351,7 @@
       background: var(--red);
       border-color: var(--blue);
     }
+
     footer {
       background: var(--bg-dark);
       color: var(--text-muted);
@@ -289,68 +362,29 @@
     }
     footer span { color: var(--red); }
 
-    /* ===== АДАПТИВ (без переноса строки) ===== */
+    /* ===== АДАПТИВ ===== */
     @media (max-width: 768px) {
-      .hero .container {
-        flex-wrap: nowrap;        /* сохраняем строку */
-        gap: 15px;
-      }
-      .hero .left h1 {
-        font-size: 1.8rem;
-      }
-      .hero .left h2 {
-        font-size: 1.1rem;
-      }
-      .hero .left .subhead {
-        font-size: 0.85rem;
-        padding-left: 10px;
-        border-left-width: 3px;
-      }
-      .hero .avatar {
-        width: 90px;
-        height: 90px;
-      }
-      .hero .contacts-top {
-        font-size: 0.75rem;
-        gap: 8px 12px;
-      }
-      .hero .contacts-top a {
-        padding: 2px 10px;
-      }
-      .hero .btn-accent-small {
-        font-size: 0.75rem;
-        padding: 2px 10px;
-      }
-      .section-title {
-        font-size: 1.5rem;
-      }
-      .section-title i {
-        font-size: 1.5rem;
-        width: 40px;
-        padding: 6px;
-      }
+      .hero .container { flex-wrap: nowrap; gap: 15px; }
+      .hero .left h1 { font-size: 1.8rem; }
+      .hero .left h2 { font-size: 1.1rem; }
+      .hero .left .subhead { font-size: 0.85rem; padding-left: 10px; border-left-width: 3px; }
+      .hero .avatar { width: 90px; height: 90px; }
+      .hero .contacts-top { font-size: 0.75rem; gap: 8px 12px; }
+      .hero .contacts-top a { padding: 2px 10px; }
+      .hero .btn-accent-small { font-size: 0.75rem; padding: 2px 10px; }
+      .section-title { font-size: 1.5rem; }
+      .section-title i { font-size: 1.5rem; width: 40px; padding: 6px; }
+      .earn-banner h3 { font-size: 1.4rem; }
+      .earn-banner .big-number { font-size: 2.2rem; }
     }
-
     @media (max-width: 480px) {
-      .hero .left h1 {
-        font-size: 1.4rem;
-      }
-      .hero .left h2 {
-        font-size: 0.9rem;
-      }
-      .hero .avatar {
-        width: 70px;
-        height: 70px;
-      }
-      .hero .contacts-top {
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 4px;
-      }
-      .hero .contacts-top a {
-        font-size: 0.7rem;
-        padding: 2px 8px;
-      }
+      .hero .left h1 { font-size: 1.4rem; }
+      .hero .left h2 { font-size: 0.9rem; }
+      .hero .avatar { width: 70px; height: 70px; }
+      .hero .contacts-top { flex-direction: column; align-items: flex-end; gap: 4px; }
+      .hero .contacts-top a { font-size: 0.7rem; padding: 2px 8px; }
+      .earn-banner h3 { font-size: 1.1rem; }
+      .earn-banner .big-number { font-size: 1.8rem; }
     }
   </style>
 </head>
@@ -378,8 +412,126 @@
     </div>
   </header>
 
-  <!-- ===== НАПРАВЛЕНИЯ ===== -->
+  <!-- ===== БЛОК 1: КТО Я? ===== -->
   <section>
+    <div class="container">
+      <div class="section-title"><i class="fas fa-user-tie"></i> Кто я?</div>
+      <div style="background: var(--bg-card); padding: 25px 30px; border-radius: var(--radius); box-shadow: var(--shadow); border-left: 6px solid var(--blue);">
+        <p style="font-size: 1.2rem; color: var(--text-light); margin-bottom: 16px;">
+          <strong>Я Иван Бурко, эксперт по недвижимости.</strong>
+        </p>
+        <ul style="list-style: none; color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">
+          <li><i class="fas fa-check-circle" style="color: var(--red); width: 24px;"></i> Экономлю до 30%, подберу жильё по всей РФ (новостройки, вторичка, ИЖС, курорты)</li>
+          <li><i class="fas fa-check-circle" style="color: var(--red); width: 24px;"></i> Помогу с ипотекой от 3,5% и рассрочкой 0%</li>
+          <li><i class="fas fa-check-circle" style="color: var(--red); width: 24px;"></i> Веду сделку под ключ, стаж 3+ года</li>
+          <li><i class="fas fa-check-circle" style="color: var(--red); width: 24px;"></i> Забираю всю бюрократию и переговоры на себя – клиент только принимает решения</li>
+          <li><i class="fas fa-check-circle" style="color: var(--red); width: 24px;"></i> Приоритетное обслуживание за счёт наработанных личных и корпоративных связей</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== БЛОК 2: КАК ВЫ МОЖЕТЕ ЗАРАБОТАТЬ? ===== -->
+  <section style="background: rgba(255,255,255,0.02);">
+    <div class="container">
+      <div class="section-title"><i class="fas fa-coins"></i> Как Вы можете заработать?</div>
+      <p class="section-sub" style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 25px;">
+        Реферальная программа – вы просто передаёте контакт, остальное делаю я.
+      </p>
+      <div class="grid-2col">
+        <div class="item"><i class="fas fa-user-plus"></i><span>Вы передаёте контакт</span></div>
+        <div class="item"><i class="fas fa-user-check"></i><span>Клиент получает скидки и преференции</span></div>
+        <div class="item"><i class="fas fa-chart-line"></i><span>Я провожу сделку, информируя вас на каждом этапе</span></div>
+      </div>
+      <div style="margin-top: 25px; background: var(--bg-card); padding: 20px 24px; border-radius: var(--radius); box-shadow: var(--shadow); border-left: 6px solid var(--red);">
+        <p style="font-size: 1.2rem; font-weight: 600; color: var(--white);">
+          <i class="fas fa-arrow-right" style="color: var(--red);"></i>
+          Ваше вознаграждение: <span style="color: var(--red);">от 10 000 до 100 000 ₽</span>
+          в зависимости от сложности сделки и сегмента недвижимости.
+        </p>
+      </div>
+      <!-- НОВЫЙ БЛОК С ПРЕДЛОЖЕНИЕМ -->
+      <div class="earn-banner">
+        <h3><i class="fas fa-hand-holding-usd"></i> Знаете кого-то, кто ищет квартиру?</h3>
+        <div class="big-number">Вы только что заработали ~ 30 000!</div>
+        <div class="sub">*Среднее вознаграждение партнёру за сделку</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== БЛОК 3: КАК РАССЧИТЫВАЕТСЯ ВОЗНАГРАЖДЕНИЕ? ===== -->
+  <section>
+    <div class="container">
+      <div class="section-title"><i class="fas fa-calculator"></i> Как рассчитывается вознаграждение?</div>
+      <div class="table-wrap">
+        <table class="reward-table">
+          <thead><tr><th>Сегмент</th><th>Вознаграждение (₽)</th></tr></thead>
+          <tbody>
+            <tr><td>Вторичный рынок</td><td>от 10 000 до 20 000</td></tr>
+            <tr><td>Новостройка</td><td>от 15 000 до 30 000</td></tr>
+            <tr><td>ИЖС (строительство дома)</td><td>от 20 000 до 50 000</td></tr>
+            <tr><td>Курортная недвижимость</td><td>от 20 000 до 100 000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <i class="fas fa-info-circle"></i>
+        <strong>Важно:</strong> клиент <strong>не платит комиссию</strong> при покупке новостройки или строительстве дома. Даже на вторичном рынке выгода от сделки превышает расходы.
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== БЛОК 4: ГДЕ ВЗЯТЬ КЛИЕНТОВ? ===== -->
+  <section style="background: rgba(255,255,255,0.02);">
+    <div class="container">
+      <div class="section-title"><i class="fas fa-users"></i> Где взять клиентов?</div>
+      <div style="background: var(--bg-card); padding: 25px 30px; border-radius: var(--radius); box-shadow: var(--shadow); border-left: 6px solid var(--blue);">
+        <p style="font-size: 1.1rem; color: var(--text-light);">
+          <i class="fas fa-lightbulb" style="color: var(--red); margin-right: 12px;"></i>
+          Ваши клиенты – это ваши знакомые, коллеги, друзья, которые планируют покупку или продажу недвижимости.
+          Просто поделитесь ссылкой на этот сайт или передайте мой контакт – я сделаю всё остальное.
+          Каждая рекомендация приносит вам доход от 10 000 до 100 000 ₽.
+        </p>
+        <p style="margin-top: 16px; color: var(--text-muted);">
+          <i class="fas fa-check-circle" style="color: var(--red);"></i> Расскажите о программе в соцсетях, мессенджерах, на работе.
+        </p>
+        <p style="color: var(--text-muted);">
+          <i class="fas fa-check-circle" style="color: var(--red);"></i> Разместите мой баннер или визитку в своих каналах.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== БЛОК 5: ПРИМЕРЫ ЗАРАБОТКА ===== -->
+  <section>
+    <div class="container">
+      <div class="section-title"><i class="fas fa-rocket"></i> Примеры заработка</div>
+      <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 25px;">Всё зависит от вашей активности. Потолка нет!</p>
+      <div class="grid-2col">
+        <div class="item" style="flex-direction: column; align-items: flex-start; border-left-color: var(--red);">
+          <h4 style="color: var(--white);">Пассивный</h4>
+          <span>~ 5 рекомендаций</span>
+          <span style="font-size: 1.2rem; font-weight: 700; color: var(--red);">50 000 – 500 000 ₽</span>
+        </div>
+        <div class="item" style="flex-direction: column; align-items: flex-start; border-left-color: var(--blue);">
+          <h4 style="color: var(--white);">Активный</h4>
+          <span>~ 10 рекомендаций</span>
+          <span style="font-size: 1.2rem; font-weight: 700; color: var(--red);">100 000 – 1 000 000 ₽</span>
+        </div>
+        <div class="item" style="flex-direction: column; align-items: flex-start; border-left-color: var(--red);">
+          <h4 style="color: var(--white);">Проактивный</h4>
+          <span>~ 20 рекомендаций</span>
+          <span style="font-size: 1.2rem; font-weight: 700; color: var(--red);">200 000 – 2 000 000 ₽</span>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 25px; font-size: 1.5rem; font-weight: 700; color: var(--red);">
+        ⚡ Потолка нет! Зарабатывай столько, сколько тебе нужно!
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== БЛОК 6: НАПРАВЛЕНИЯ, ОБЪЕКТЫ, УСЛУГИ, ПРЕИМУЩЕСТВА ===== -->
+  <section style="background: rgba(255,255,255,0.02);">
     <div class="container">
       <div class="section-title"><i class="fas fa-compass"></i> Направления</div>
       <div class="grid-2col">
@@ -389,8 +541,7 @@
     </div>
   </section>
 
-  <!-- ===== ОБЪЕКТЫ ===== -->
-  <section style="background: rgba(255,255,255,0.02);">
+  <section>
     <div class="container">
       <div class="section-title"><i class="fas fa-building"></i> Объекты</div>
       <div class="grid-2col">
@@ -403,8 +554,7 @@
     </div>
   </section>
 
-  <!-- ===== УСЛУГИ ===== -->
-  <section>
+  <section style="background: rgba(255,255,255,0.02);">
     <div class="container">
       <div class="section-title"><i class="fas fa-hand-holding-heart"></i> Услуги</div>
       <div class="grid-2col">
@@ -416,8 +566,7 @@
     </div>
   </section>
 
-  <!-- ===== ПРЕИМУЩЕСТВА ===== -->
-  <section style="background: rgba(255,255,255,0.02);">
+  <section>
     <div class="container">
       <div class="section-title"><i class="fas fa-star"></i> Преимущества работы</div>
       <div class="card-grid">
@@ -445,10 +594,10 @@
     </div>
   </section>
 
-  <!-- ===== КОНТАКТЫ ВНИЗУ ===== -->
+  <!-- ===== БЛОК 7: КОНТАКТЫ ===== -->
   <section style="padding-bottom: 30px;">
     <div class="container">
-      <div class="section-title"><i class="fas fa-address-card"></i> Связь с экспертом</div>
+      <div class="section-title"><i class="fas fa-address-card"></i> Мои контакты</div>
       <div class="contacts-block">
         <div class="container">
           <div class="info">
