@@ -75,11 +75,12 @@
       object-fit: cover;
       box-shadow: 0 0 0 2px var(--red), 0 0 0 6px rgba(213,43,30,0.2);
     }
+    /* Подпись "Связь со мной" – белым */
     .hero .contact-label {
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      color: var(--blue);
+      color: var(--white);  /* было синим, стало белым */
       margin-top: 6px;
       align-self: flex-end;
     }
@@ -320,11 +321,12 @@
     .contacts-block .col {
       flex: 1 1 200px;
     }
+    /* Подписи внизу – белым */
     .contacts-block .col .label {
       font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--blue);
+      color: var(--white);  /* было синим, стало белым */
       margin-bottom: 12px;
       border-bottom: 2px solid var(--red);
       padding-bottom: 6px;
@@ -417,7 +419,6 @@
       font-size: 0.9rem;
       color: var(--text-muted);
     }
-    /* второй канал – другая обводка */
     .channel-card.secondary {
       border-left-color: var(--red);
     }
@@ -704,7 +705,7 @@
     </div>
   </section>
 
-  <!-- ===== БЛОК 11: КОНТАКТЫ (с разделением) ===== -->
+  <!-- ===== БЛОК 11: КОНТАКТЫ ===== -->
   <section style="padding-bottom: 30px;">
     <div class="container">
       <div class="section-title"><i class="fas fa-address-card"></i> Контакты</div>
