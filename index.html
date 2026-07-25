@@ -270,16 +270,13 @@
       gap: 12px;
       white-space: nowrap;
     }
-    .float-button i {
-      font-size: 1.6rem;
-    }
+    .float-button i { font-size: 1.6rem; }
     .float-button:hover {
       background: var(--red);
       border-color: var(--blue);
       transform: scale(1.05);
       box-shadow: 0 6px 32px rgba(213,43,30,0.5);
     }
-    /* Адаптив для плавающей кнопки */
     @media (max-width: 640px) {
       .float-button {
         padding: 12px 20px;
@@ -288,9 +285,7 @@
         right: 20px;
         gap: 8px;
       }
-      .float-button i {
-        font-size: 1.2rem;
-      }
+      .float-button i { font-size: 1.2rem; }
     }
     @media (max-width: 480px) {
       .float-button {
@@ -519,26 +514,8 @@
     </div>
   </section>
 
-  <!-- ===== БЛОК 6: ОСТАВИТЬ ЗАЯВКУ (основная кнопка) ===== -->
+  <!-- ===== БЛОК 6: КАК ВЫ МОЖЕТЕ ЗАРАБОТАТЬ? ===== -->
   <section style="background: rgba(255,255,255,0.02);">
-    <div class="container">
-      <div class="section-title"><i class="fas fa-pen-alt"></i> Оставить заявку</div>
-      <p style="color: var(--text-muted); text-align: center; margin-bottom: 30px; font-size: 1.1rem;">
-        Заполните форму – я свяжусь с вами и сделаю <strong>бесплатную подборку</strong> объектов под ваш запрос.
-      </p>
-      <div style="text-align: center;">
-        <a href="https://crm.ruspronet.ru/order" target="_blank" class="btn-claim">
-          <i class="fas fa-paper-plane"></i> Перейти к заявке
-        </a>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 16px;">
-          <i class="fas fa-shield-alt" style="color: var(--blue);"></i> Вы будете перенаправлены на наш защищённый портал для оформления заявки
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== БЛОК 7: КАК ВЫ МОЖЕТЕ ЗАРАБОТАТЬ? ===== -->
-  <section>
     <div class="container">
       <div class="section-title"><i class="fas fa-coins"></i> Как Вы можете заработать?</div>
       <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 25px;">
@@ -564,8 +541,8 @@
     </div>
   </section>
 
-  <!-- ===== БЛОК 8: КАК РАССЧИТЫВАЕТСЯ ВОЗНАГРАЖДЕНИЕ? ===== -->
-  <section style="background: rgba(255,255,255,0.02);">
+  <!-- ===== БЛОК 7: КАК РАССЧИТЫВАЕТСЯ ВОЗНАГРАЖДЕНИЕ? ===== -->
+  <section>
     <div class="container">
       <div class="section-title"><i class="fas fa-calculator"></i> Как рассчитывается вознаграждение?</div>
       <div class="table-wrap">
@@ -586,8 +563,8 @@
     </div>
   </section>
 
-  <!-- ===== БЛОК 9: ГДЕ ВЗЯТЬ КЛИЕНТОВ? ===== -->
-  <section>
+  <!-- ===== БЛОК 8: ГДЕ ВЗЯТЬ КЛИЕНТОВ? ===== -->
+  <section style="background: rgba(255,255,255,0.02);">
     <div class="container">
       <div class="section-title"><i class="fas fa-users"></i> Где взять клиентов?</div>
       <div style="background: var(--bg-card); padding: 25px 30px; border-radius: var(--radius); box-shadow: var(--shadow); border-left: 6px solid var(--blue);">
@@ -607,8 +584,8 @@
     </div>
   </section>
 
-  <!-- ===== БЛОК 10: ПРИМЕРЫ ЗАРАБОТКА ===== -->
-  <section style="background: rgba(255,255,255,0.02);">
+  <!-- ===== БЛОК 9: ПРИМЕРЫ ЗАРАБОТКА ===== -->
+  <section>
     <div class="container">
       <div class="section-title"><i class="fas fa-rocket"></i> Примеры заработка</div>
       <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 25px;">Всё зависит от вашей активности. Потолка нет!</p>
@@ -631,6 +608,24 @@
       </div>
       <div style="text-align: center; margin-top: 25px; font-size: 1.5rem; font-weight: 700; color: var(--red);">
         ⚡ Потолка нет! Зарабатывай столько, сколько тебе нужно!
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== БЛОК 10: ОСТАВИТЬ ЗАЯВКУ (в конце перед контактами) ===== -->
+  <section style="background: rgba(255,255,255,0.02);">
+    <div class="container">
+      <div class="section-title"><i class="fas fa-pen-alt"></i> Оставить заявку</div>
+      <p style="color: var(--text-muted); text-align: center; margin-bottom: 30px; font-size: 1.1rem;">
+        Заполните форму – я свяжусь с вами и сделаю <strong>бесплатную подборку</strong> объектов под ваш запрос.
+      </p>
+      <div style="text-align: center;">
+        <a href="https://crm.ruspronet.ru/order" target="_blank" class="btn-claim">
+          <i class="fas fa-paper-plane"></i> Перейти к заявке
+        </a>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 16px;">
+          <i class="fas fa-shield-alt" style="color: var(--blue);"></i> Вы будете перенаправлены на наш защищённый портал для оформления заявки
+        </p>
       </div>
     </div>
   </section>
@@ -665,7 +660,7 @@
     <div class="container">© 2026 <span>Иван Бурко</span>. Все права защищены.</div>
   </footer>
 
-  <!-- ===== ПЛАВАЮЩАЯ КНОПКА "ОСТАВИТЬ ЗАЯВКУ" ===== -->
+  <!-- ===== ПЛАВАЮЩАЯ КНОПКА "ОСТАВИТЬ ЗАЯВКУ" (всегда внизу справа) ===== -->
   <a href="https://crm.ruspronet.ru/order" target="_blank" class="float-button">
     <i class="fas fa-pen-fancy"></i> Оставить заявку
   </a>
