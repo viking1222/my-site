@@ -305,7 +305,6 @@
       color: var(--blue);
     }
 
-    /* ===== ОСНОВНЫЕ КНОПКИ ===== */
     .btn-claim {
       display: inline-block;
       background: var(--blue);
@@ -711,7 +710,6 @@
       }
     }
 
-    /* ===== МЕДИА-ЗАПРОСЫ ДЛЯ ПОПАПА ===== */
     @media (max-width: 700px) {
       .popup-cards {
         grid-template-columns: repeat(3, 1fr);
@@ -727,22 +725,12 @@
         padding: 10px 24px;
         font-size: 0.9rem;
       }
-      .popup-admin .admin-row input {
-        min-width: 80px;
-        font-size: 0.8rem;
-        padding: 6px 10px;
-      }
-      .popup-admin .admin-row .btn-admin {
-        padding: 6px 14px;
-        font-size: 0.75rem;
-      }
       .popup-mini-icon {
         padding: 10px 14px;
         font-size: 0.75rem;
         bottom: 90px;
         right: 16px;
       }
-      .popup-mini-icon i { font-size: 1rem; }
     }
     @media (max-width: 480px) {
       .popup-cards {
@@ -760,18 +748,6 @@
         padding: 8px 18px;
         font-size: 0.75rem;
       }
-      .popup-bottom .btn-claim-popup i { font-size: 0.8rem; }
-      .popup-admin .admin-row { gap: 6px; }
-      .popup-admin .admin-row input {
-        min-width: 60px;
-        font-size: 0.7rem;
-        padding: 4px 8px;
-      }
-      .popup-admin .admin-row .btn-admin {
-        padding: 4px 10px;
-        font-size: 0.65rem;
-      }
-      .popup-admin .admin-status { font-size: 0.6rem; }
       .popup-mini-icon {
         padding: 8px 12px;
         font-size: 0.65rem;
@@ -914,3 +890,27 @@
   <section style="padding: 30px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
     <div class="container">
       <div class="section-title"><i class="fas fa-bullhorn"></i> Мои каналы</div>
+      <div class="channels-grid">
+        <a href="https://t.me/Novostroiki_NSK_Ivan_Burko" target="_blank" class="channel-card">
+          <i class="fab fa-telegram-plane"></i>
+          <div class="info">
+            <span class="name">Telegram-канал</span>
+            <span class="handle">@Novostroiki_NSK_Ivan_Burko</span>
+          </div>
+        </a>
+        <a href="https://max.ru/id750600259101_biz" target="_blank" class="channel-card secondary">
+          <i class="fas fa-user-circle"></i>
+          <div class="info">
+            <span class="name">MAX-профиль</span>
+            <span class="handle">id750600259101_biz</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ОСТАЛЬНЫЕ БЛОКИ (кратко) ===== -->
+  <section>
+    <div class="container">
+      <div class="section-title"><i class="fas fa-user-tie"></i> Кто я?</div>
+      <div style="background: var(--bg-card); padding: 25px 30px; border-radius: var(--radius); box-shadow: var
