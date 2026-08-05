@@ -495,8 +495,6 @@
       justify-content: center;
       padding-top: 14px;
       border-top: 1px solid rgba(255,255,255,0.06);
-      gap: 12px;
-      flex-wrap: wrap;
     }
     .popup-bottom .btn-claim-popup {
       background: var(--blue);
@@ -516,23 +514,6 @@
       background: var(--red);
       border-color: var(--blue);
       transform: scale(1.02);
-    }
-    .popup-bottom .btn-minimize {
-      background: rgba(255,255,255,0.06);
-      color: var(--text-muted);
-      padding: 14px 24px;
-      border-radius: 50px;
-      font-size: 1rem;
-      border: 1px solid rgba(255,255,255,0.1);
-      cursor: pointer;
-      transition: 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .popup-bottom .btn-minimize:hover {
-      background: rgba(255,255,255,0.12);
-      color: var(--white);
     }
 
     /* ===== АДМИНКА В ПОПАПЕ ===== */
@@ -746,10 +727,6 @@
         padding: 10px 24px;
         font-size: 0.9rem;
       }
-      .popup-bottom .btn-minimize {
-        padding: 10px 16px;
-        font-size: 0.8rem;
-      }
       .popup-admin .admin-row input {
         min-width: 80px;
         font-size: 0.8rem;
@@ -784,10 +761,6 @@
         font-size: 0.75rem;
       }
       .popup-bottom .btn-claim-popup i { font-size: 0.8rem; }
-      .popup-bottom .btn-minimize {
-        padding: 8px 12px;
-        font-size: 0.7rem;
-      }
       .popup-admin .admin-row { gap: 6px; }
       .popup-admin .admin-row input {
         min-width: 60px;
@@ -896,9 +869,6 @@
         <a href="https://crm.ruspronet.ru/order" target="_blank" class="btn-claim-popup">
           <i class="fas fa-paper-plane"></i> Оставить заявку
         </a>
-        <button class="btn-minimize" id="minimizeBtn">
-          <i class="fas fa-chevron-down"></i> Свернуть
-        </button>
       </div>
 
       <!-- Админ-панель внутри попапа -->
@@ -930,4 +900,17 @@
         <img src="4b9cbf1b-47b8-4e98-bcf3-e818e27035a7.jfif" alt="Иван Бурко" class="avatar" />
         <div class="contact-label">Связь со мной</div>
         <div class="contacts-top">
-          <a href="tel:+795291555
+          <a href="tel:+79529155586"><i class="fas fa-phone-alt"></i> +7 (952) 915-55-86</a>
+          <a href="https://t.me/Ivan_Burko" target="_blank"><i class="fab fa-telegram-plane"></i> @Ivan_Burko</a>
+          <a href="https://max.ru/u/f9LHodD0cOIdLJNKd5da-SworHFECeqyQ1QqzqnMtKeEuCe5EXO3qX8h9BU" target="_blank" class="btn-accent-small">
+            <i class="fas fa-external-link-alt"></i> MAX
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== БЛОК "МОИ КАНАЛЫ" ===== -->
+  <section style="padding: 30px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
+    <div class="container">
+      <div class="section-title"><i class="fas fa-bullhorn"></i> Мои каналы</div>
