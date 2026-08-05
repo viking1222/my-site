@@ -809,6 +809,16 @@
     .earn-banner h3 i { color: var(--red); margin-right: 12px; }
     .earn-banner .big-number { font-size: 3rem; font-weight: 900; color: var(--red); text-shadow: 0 0 20px rgba(213,43,30,0.3); }
     .earn-banner .sub { font-size: 1.1rem; color: var(--text-muted); margin-top: 6px; }
+
+        /* ===== АНИМАЦИИ ДЛЯ ПОЛНОЭКРАННОГО РЕЖИМА ===== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeOut {
+      from { opacity: 1; transform: scale(1); }
+      to { opacity: 0; transform: scale(0.95); }
+    }
   </style>
 </head>
 <body>
@@ -1163,7 +1173,7 @@
     // ===== ЗАГРУЗКА КАРТОЧЕК =====
     let cards = JSON.parse(localStorage.getItem('popupCards')) || [];
 
-    function renderCards() {
+        function renderCards() {
       const container = document.getElementById('popupCards');
       container.innerHTML = '';
       
@@ -1184,7 +1194,7 @@
 
       cards.forEach((card, index) => {
         container.innerHTML += `
-          <div class="popup-card">
+          <div class="popup-card" onclick="openFullscreen('${card.image}', ${index})" style="cursor: pointer;">
             <img src="${card.image}" alt="Квартира ${index+1}" />
             <span class="card-number">${index+1}</span>
             <button class="delete-btn-card" data-index="${index}" style="
@@ -1200,6 +1210,7 @@
               cursor: pointer;
               transition: 0.2s;
               display: block;
+              z-index: 10;
             ">
               <i class="fas fa-trash"></i> Удалить
             </button>
@@ -1208,7 +1219,8 @@
       });
 
       document.querySelectorAll('.delete-btn-card').forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
           if (!isUnlocked) {
             alert('Сначала введите пароль! Нажмите на ⚙ "Управление карточками"');
             return;
@@ -1220,7 +1232,114 @@
         });
       });
     }
-
+    
+    // ===== ОТКРЫТИЕ КАРТОЧКИ НА ВЕСЬ ЭКРАН =====
+    function openFullscreen(imageUrl, index) {
+      const overlay = document.createElement('div');
+      overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.92);
+        backdrop-filter: blur(8px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 99999;
+        cursor: pointer;
+        animation: fadeIn 0.3s ease;
+      `;
+      
+      const container = document.createElement('div');
+      container.style.cssText = `
+        max-width: 90%;
+        max-height: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      `;
+      
+      const img = document.createElement('img');
+      img.src = imageUrl;
+      img.style.cssText = `
+        max-width: 100%;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 12px;
+        box-shadow: 0 0 60px rgba(0,0,0,0.8);
+        border: 2px solid rgba(255,255,255,0.1);
+      `;
+      
+      const closeBtn = document.createElement('button');
+      closeBtn.innerHTML = '✕';
+      closeBtn.style.cssText = `
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        background: var(--red);
+        color: white;
+        border: none;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        font-size: 1.6rem;
+        cursor: pointer;
+        transition: 0.3s;
+        z-index: 10;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      `;
+      closeBtn.onmouseover = () => closeBtn.style.transform = 'scale(1.1)';
+      closeBtn.onmouseout = () => closeBtn.style.transform = 'scale(1)';
+      
+      const numberLabel = document.createElement('div');
+      numberLabel.style.cssText = `
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        background: var(--blue);
+        color: white;
+        padding: 8px 18px;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-weight: 700;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      `;
+      numberLabel.textContent = `Квартира ${index + 1}`;
+      
+      container.appendChild(img);
+      container.appendChild(closeBtn);
+      container.appendChild(numberLabel);
+      overlay.appendChild(container);
+      document.body.appendChild(overlay);
+      
+      const closeFullscreen = () => {
+        overlay.style.animation = 'fadeOut 0.3s ease';
+        setTimeout(() => overlay.remove(), 300);
+      };
+      
+      overlay.addEventListener('click', function(e) {
+        if (e.target === this) closeFullscreen();
+      });
+      
+      closeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        closeFullscreen();
+      });
+      
+      document.addEventListener('keydown', function escHandler(e) {
+        if (e.key === 'Escape') {
+          closeFullscreen();
+          document.removeEventListener('keydown', escHandler);
+        }
+      });
+    }
+    
     // ===== АДМИНКА =====
     let isAdminVisible = false;
     let isUnlocked = false;
