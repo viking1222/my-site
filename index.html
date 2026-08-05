@@ -1143,24 +1143,6 @@
       popupMiniIcon.classList.remove('visible');
     });
 
-       <script>
-    // ===== УПРАВЛЕНИЕ ПОПАПОМ =====
-    const popupOverlay = document.getElementById('popupOverlay');
-    const popupClose = document.getElementById('popupClose');
-    const popupMiniIcon = document.getElementById('popupMiniIcon');
-
-    // Закрыть попап при нажатии на крестик
-    popupClose.addEventListener('click', function() {
-      popupOverlay.classList.add('hidden');
-      popupMiniIcon.classList.add('visible');
-    });
-
-    // Открыть попап при нажатии на мини-иконку
-    popupMiniIcon.addEventListener('click', function() {
-      popupOverlay.classList.remove('hidden');
-      popupMiniIcon.classList.remove('visible');
-    });
-
     // ===== ЗАГРУЗКА КАРТОЧЕК =====
     let cards = JSON.parse(localStorage.getItem('popupCards')) || [];
 
@@ -1229,7 +1211,6 @@
     // При клике на кнопку "Управление"
     toggleAdminBtn.addEventListener('click', function() {
       if (isUnlocked) {
-        // Если пароль уже введён — просто скрываем/показываем админку
         isAdminVisible = !isAdminVisible;
         popupAdmin.classList.toggle('visible', isAdminVisible);
         toggleAdminBtn.innerHTML = isAdminVisible ? 
@@ -1238,7 +1219,6 @@
         document.getElementById('adminStatus').textContent = 
           isAdminVisible ? 'Админ-панель активна' : 'Админ-панель скрыта';
       } else {
-        // Если пароль не введён — показываем модалку
         passwordModal.classList.add('active');
         passwordInput.value = '';
         passwordError.classList.remove('show');
