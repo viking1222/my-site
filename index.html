@@ -75,12 +75,11 @@
       object-fit: cover;
       box-shadow: 0 0 0 2px var(--red), 0 0 0 6px rgba(213,43,30,0.2);
     }
-    /* Подпись "Связь со мной" – белым */
     .hero .contact-label {
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      color: var(--white);  /* было синим, стало белым */
+      color: var(--white);
       margin-top: 6px;
       align-self: flex-end;
     }
@@ -185,124 +184,6 @@
     .card h3 { font-size: 1.2rem; margin-bottom: 8px; color: var(--white); }
     .card p { color: var(--text-muted); font-size: 0.98rem; }
 
-    .table-wrap {
-      background: var(--bg-card);
-      border-radius: var(--radius);
-      overflow: hidden;
-      overflow-x: auto;
-      box-shadow: var(--shadow);
-    }
-    .reward-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 1rem;
-      min-width: 320px;
-    }
-    .reward-table th {
-      background: var(--blue);
-      color: white;
-      padding: 16px 20px;
-      text-align: left;
-      font-weight: 600;
-    }
-    .reward-table td {
-      padding: 14px 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      color: var(--text-light);
-    }
-    .reward-table tr:last-child td { border-bottom: none; }
-    .reward-table tr:hover td { background: rgba(255,255,255,0.04); }
-
-    .note {
-      margin-top: 20px;
-      background: rgba(0,57,166,0.15);
-      padding: 18px 24px;
-      border-radius: 12px;
-      border-left: 5px solid var(--red);
-      color: var(--text-light);
-    }
-    .note i { color: var(--red); margin-right: 10px; }
-
-    .earn-banner {
-      background: linear-gradient(135deg, rgba(0,57,166,0.2), rgba(213,43,30,0.1));
-      border: 1px solid var(--blue);
-      border-radius: var(--radius);
-      padding: 25px 30px;
-      margin-top: 20px;
-      text-align: center;
-      box-shadow: 0 0 30px rgba(0,57,166,0.1);
-    }
-    .earn-banner h3 { font-size: 1.8rem; font-weight: 700; color: var(--white); }
-    .earn-banner h3 i { color: var(--red); margin-right: 12px; }
-    .earn-banner .big-number { font-size: 3rem; font-weight: 900; color: var(--red); text-shadow: 0 0 20px rgba(213,43,30,0.3); }
-    .earn-banner .sub { font-size: 1.1rem; color: var(--text-muted); margin-top: 6px; }
-
-    .btn-claim {
-      display: inline-block;
-      background: var(--blue);
-      color: white;
-      padding: 18px 50px;
-      border-radius: 50px;
-      font-size: 1.4rem;
-      font-weight: 700;
-      text-decoration: none;
-      border: 2px solid var(--red);
-      transition: 0.3s;
-      box-shadow: 0 0 30px rgba(0,57,166,0.3);
-    }
-    .btn-claim:hover {
-      background: var(--red);
-      border-color: var(--blue);
-      transform: scale(1.02);
-    }
-
-    .float-button {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: var(--blue);
-      color: white;
-      padding: 16px 28px;
-      border-radius: 60px;
-      font-size: 1.2rem;
-      font-weight: 700;
-      text-decoration: none;
-      border: 2px solid var(--red);
-      box-shadow: 0 4px 24px rgba(0,57,166,0.5);
-      transition: 0.3s;
-      z-index: 999;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      white-space: nowrap;
-    }
-    .float-button i { font-size: 1.6rem; }
-    .float-button:hover {
-      background: var(--red);
-      border-color: var(--blue);
-      transform: scale(1.05);
-      box-shadow: 0 6px 32px rgba(213,43,30,0.5);
-    }
-    @media (max-width: 640px) {
-      .float-button {
-        padding: 12px 20px;
-        font-size: 1rem;
-        bottom: 20px;
-        right: 20px;
-        gap: 8px;
-      }
-      .float-button i { font-size: 1.2rem; }
-    }
-    @media (max-width: 480px) {
-      .float-button {
-        padding: 10px 16px;
-        font-size: 0.9rem;
-        bottom: 16px;
-        right: 16px;
-        border-radius: 50px;
-      }
-    }
-
     .contacts-block {
       background: var(--bg-card);
       color: var(--text-light);
@@ -321,12 +202,11 @@
     .contacts-block .col {
       flex: 1 1 200px;
     }
-    /* Подписи внизу – белым */
     .contacts-block .col .label {
       font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--white);  /* было синим, стало белым */
+      color: var(--white);
       margin-bottom: 12px;
       border-bottom: 2px solid var(--red);
       padding-bottom: 6px;
@@ -377,7 +257,6 @@
     }
     footer span { color: var(--red); }
 
-    /* ===== Стили для блока каналов (карточки) ===== */
     .channels-grid {
       display: flex;
       flex-wrap: wrap;
@@ -426,39 +305,604 @@
       color: var(--blue);
     }
 
-    @media (max-width: 768px) {
-      .hero .container { flex-wrap: nowrap; gap: 15px; }
-      .hero .left h1 { font-size: 1.8rem; }
-      .hero .left h2 { font-size: 1.1rem; }
-      .hero .left .subhead { font-size: 0.85rem; padding-left: 10px; border-left-width: 3px; }
-      .hero .avatar { width: 90px; height: 90px; }
-      .hero .contact-label { font-size: 0.6rem; }
-      .hero .contacts-top { font-size: 0.75rem; gap: 8px 12px; }
-      .hero .contacts-top a { padding: 2px 10px; }
-      .hero .btn-accent-small { font-size: 0.75rem; padding: 2px 10px; }
-      .section-title { font-size: 1.5rem; }
-      .section-title i { font-size: 1.5rem; width: 40px; padding: 6px; }
-      .earn-banner h3 { font-size: 1.4rem; }
-      .earn-banner .big-number { font-size: 2.2rem; }
-      .btn-claim { font-size: 1.2rem; padding: 14px 30px; }
-      .contacts-block .container { flex-direction: column; }
-      .channel-card { padding: 16px 20px; }
+    /* ===== ОСНОВНЫЕ КНОПКИ ===== */
+    .btn-claim {
+      display: inline-block;
+      background: var(--blue);
+      color: white;
+      padding: 18px 50px;
+      border-radius: 50px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid var(--red);
+      transition: 0.3s;
+      box-shadow: 0 0 30px rgba(0,57,166,0.3);
+    }
+    .btn-claim:hover {
+      background: var(--red);
+      border-color: var(--blue);
+      transform: scale(1.02);
+    }
+
+    /* ===== ВСПЛЫВАЮЩЕЕ ОКНО ===== */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      transition: 0.3s;
+    }
+    .popup-overlay.hidden {
+      display: none;
+    }
+    .popup-overlay.minimized {
+      background: transparent;
+      backdrop-filter: none;
+      pointer-events: none;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+    .popup-overlay.minimized .popup-content {
+      transform: scale(0.1) translateY(80px);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .popup-overlay.minimized .popup-mini-icon {
+      display: flex;
+    }
+    .popup-mini-icon {
+      display: none;
+      position: fixed;
+      bottom: 110px;
+      right: 30px;
+      background: var(--blue);
+      color: white;
+      padding: 14px 18px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border: 2px solid var(--red);
+      box-shadow: 0 4px 24px rgba(0,57,166,0.5);
+      cursor: pointer;
+      z-index: 9999;
+      align-items: center;
+      gap: 10px;
+      transition: 0.3s;
+    }
+    .popup-mini-icon:hover {
+      background: var(--red);
+      transform: scale(1.05);
+    }
+    .popup-mini-icon i { font-size: 1.2rem; }
+
+    .popup-content {
+      background: rgba(26, 31, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 30px 30px 20px;
+      max-width: 800px;
+      width: 95%;
+      max-height: 90vh;
+      border: 2px solid rgba(0,57,166,0.4);
+      box-shadow: 0 0 60px rgba(0,57,166,0.2);
+      position: relative;
+      transition: 0.3s;
+      overflow-y: auto;
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.6rem;
+      cursor: pointer;
+      transition: 0.2s;
+      z-index: 10;
+    }
+    .popup-close:hover {
+      color: var(--red);
+      transform: rotate(90deg);
+    }
+
+    .popup-title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .popup-title i { color: var(--red); margin-right: 10px; }
+    .popup-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .popup-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .popup-card {
+      background: rgba(255,255,255,0.04);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: 0.3s;
+      aspect-ratio: 9 / 16;
+      position: relative;
+    }
+    .popup-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--blue);
+    }
+    .popup-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .popup-card .card-number {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    .popup-card .delete-btn-card {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(213,43,30,0.85);
+      border: none;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.65rem;
+      cursor: pointer;
+      transition: 0.2s;
+      display: none;
+    }
+    .popup-card .delete-btn-card:hover {
+      background: var(--red);
+      transform: scale(1.05);
+    }
+    .popup-card .empty-card {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 20px;
+      background: rgba(255,255,255,0.02);
+    }
+    .popup-card .empty-card i {
+      font-size: 2.5rem;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    .popup-bottom {
+      display: flex;
+      justify-content: center;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .popup-bottom .btn-claim-popup {
+      background: var(--blue);
+      color: white;
+      padding: 14px 50px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid var(--red);
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .popup-bottom .btn-claim-popup:hover {
+      background: var(--red);
+      border-color: var(--blue);
+      transform: scale(1.02);
+    }
+
+    /* ===== АДМИНКА В ПОПАПЕ ===== */
+    .popup-admin {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: none;
+    }
+    .popup-admin.visible { display: block; }
+    .popup-admin .admin-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .popup-admin .admin-row input {
+      flex: 1;
+      min-width: 140px;
+      padding: 8px 14px;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+    .popup-admin .admin-row input:focus {
+      outline: none;
+      border-color: var(--blue);
+    }
+    .popup-admin .admin-row .btn-admin {
+      background: var(--blue);
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.2s;
+      border: 1px solid var(--red);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+    .popup-admin .admin-row .btn-admin:hover {
+      background: var(--red);
+    }
+    .popup-admin .admin-toggle-btn {
+      background: none;
+      border: 1px solid var(--blue);
+      color: var(--text-muted);
+      padding: 4px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      transition: 0.2s;
+    }
+    .popup-admin .admin-toggle-btn:hover {
+      border-color: var(--red);
+      color: var(--white);
+    }
+    .popup-admin .admin-status {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-top: 6px;
+    }
+
+    /* ===== МОДАЛКА ПАРОЛЯ ===== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 99999;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: var(--radius);
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      border: 2px solid var(--blue);
+      box-shadow: 0 0 60px rgba(0,57,166,0.3);
+    }
+    .modal-box h2 {
+      color: var(--white);
+      margin-bottom: 8px;
+      font-size: 1.3rem;
+    }
+    .modal-box p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+    .modal-box input {
+      width: 100%;
+      padding: 14px 20px;
+      background: var(--bg-dark);
+      border: 2px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      color: var(--text-light);
+      font-size: 1.1rem;
+      text-align: center;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+      transition: 0.2s;
+    }
+    .modal-box input:focus {
+      outline: none;
+      border-color: var(--blue);
+    }
+    .modal-box .btn-unlock {
+      background: var(--blue);
+      color: white;
+      border: none;
+      padding: 14px 50px;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+      border: 2px solid var(--red);
+      width: 100%;
+    }
+    .modal-box .btn-unlock:hover {
+      background: var(--red);
+      border-color: var(--blue);
+    }
+    .modal-box .error-msg {
+      color: var(--red);
+      font-size: 0.9rem;
+      margin-top: 10px;
+      display: none;
+    }
+    .modal-box .error-msg.show { display: block; }
+    .modal-box .hint {
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      margin-top: 14px;
+      opacity: 0.5;
+    }
+
+    /* ===== ПЛАВАЮЩАЯ КНОПКА ===== */
+    .float-button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--blue);
+      color: white;
+      padding: 16px 28px;
+      border-radius: 60px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid var(--red);
+      box-shadow: 0 4px 24px rgba(0,57,166,0.5);
+      transition: 0.3s;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
+    }
+    .float-button i { font-size: 1.6rem; }
+    .float-button:hover {
+      background: var(--red);
+      border-color: var(--blue);
+      transform: scale(1.05);
+      box-shadow: 0 6px 32px rgba(213,43,30,0.5);
+    }
+    @media (max-width: 640px) {
+      .float-button {
+        padding: 12px 20px;
+        font-size: 1rem;
+        bottom: 20px;
+        right: 20px;
+        gap: 8px;
+      }
+      .float-button i { font-size: 1.2rem; }
     }
     @media (max-width: 480px) {
-      .hero .left h1 { font-size: 1.4rem; }
-      .hero .left h2 { font-size: 0.9rem; }
-      .hero .avatar { width: 70px; height: 70px; }
-      .hero .contacts-top { flex-direction: column; align-items: flex-end; gap: 4px; }
-      .hero .contacts-top a { font-size: 0.7rem; padding: 2px 8px; }
-      .earn-banner h3 { font-size: 1.1rem; }
-      .earn-banner .big-number { font-size: 1.8rem; }
-      .btn-claim { font-size: 1rem; padding: 12px 20px; width: 100%; }
-      .channel-card { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .float-button {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        bottom: 16px;
+        right: 16px;
+        border-radius: 50px;
+      }
     }
+
+    /* ===== МЕДИА-ЗАПРОСЫ ДЛЯ ПОПАПА ===== */
+    @media (max-width: 700px) {
+      .popup-cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+      .popup-content {
+        padding: 20px 16px 16px;
+        max-height: 85vh;
+      }
+      .popup-title { font-size: 1.1rem; }
+      .popup-subtitle { font-size: 0.8rem; }
+      .popup-bottom .btn-claim-popup {
+        padding: 10px 24px;
+        font-size: 0.9rem;
+      }
+      .popup-admin .admin-row input {
+        min-width: 80px;
+        font-size: 0.8rem;
+        padding: 6px 10px;
+      }
+      .popup-admin .admin-row .btn-admin {
+        padding: 6px 14px;
+        font-size: 0.75rem;
+      }
+      .popup-mini-icon {
+        padding: 10px 14px;
+        font-size: 0.75rem;
+        bottom: 90px;
+        right: 16px;
+      }
+      .popup-mini-icon i { font-size: 1rem; }
+    }
+    @media (max-width: 480px) {
+      .popup-cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+      }
+      .popup-content {
+        padding: 14px 10px 12px;
+        border-radius: 12px;
+      }
+      .popup-title { font-size: 0.9rem; }
+      .popup-subtitle { font-size: 0.7rem; margin-bottom: 12px; }
+      .popup-close { font-size: 1.2rem; top: 6px; right: 10px; }
+      .popup-bottom .btn-claim-popup {
+        padding: 8px 18px;
+        font-size: 0.75rem;
+      }
+      .popup-bottom .btn-claim-popup i { font-size: 0.8rem; }
+      .popup-admin .admin-row { gap: 6px; }
+      .popup-admin .admin-row input {
+        min-width: 60px;
+        font-size: 0.7rem;
+        padding: 4px 8px;
+      }
+      .popup-admin .admin-row .btn-admin {
+        padding: 4px 10px;
+        font-size: 0.65rem;
+      }
+      .popup-admin .admin-status { font-size: 0.6rem; }
+      .popup-mini-icon {
+        padding: 8px 12px;
+        font-size: 0.65rem;
+        bottom: 80px;
+        right: 12px;
+        gap: 6px;
+      }
+      .popup-mini-icon i { font-size: 0.8rem; }
+      .popup-card .card-number { font-size: 0.5rem; padding: 1px 6px; }
+      .popup-card .delete-btn-card { font-size: 0.5rem; padding: 2px 8px; }
+    }
+
+    /* Остальные стили из оригинального кода */
+    .table-wrap {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      overflow-x: auto;
+      box-shadow: var(--shadow);
+    }
+    .reward-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1rem;
+      min-width: 320px;
+    }
+    .reward-table th {
+      background: var(--blue);
+      color: white;
+      padding: 16px 20px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .reward-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: var(--text-light);
+    }
+    .reward-table tr:last-child td { border-bottom: none; }
+    .reward-table tr:hover td { background: rgba(255,255,255,0.04); }
+    .note {
+      margin-top: 20px;
+      background: rgba(0,57,166,0.15);
+      padding: 18px 24px;
+      border-radius: 12px;
+      border-left: 5px solid var(--red);
+      color: var(--text-light);
+    }
+    .note i { color: var(--red); margin-right: 10px; }
+    .earn-banner {
+      background: linear-gradient(135deg, rgba(0,57,166,0.2), rgba(213,43,30,0.1));
+      border: 1px solid var(--blue);
+      border-radius: var(--radius);
+      padding: 25px 30px;
+      margin-top: 20px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0,57,166,0.1);
+    }
+    .earn-banner h3 { font-size: 1.8rem; font-weight: 700; color: var(--white); }
+    .earn-banner h3 i { color: var(--red); margin-right: 12px; }
+    .earn-banner .big-number { font-size: 3rem; font-weight: 900; color: var(--red); text-shadow: 0 0 20px rgba(213,43,30,0.3); }
+    .earn-banner .sub { font-size: 1.1rem; color: var(--text-muted); margin-top: 6px; }
   </style>
 </head>
 <body>
 
+  <!-- ===== МОДАЛКА ПАРОЛЯ ДЛЯ АДМИНКИ ===== -->
+  <div class="modal-overlay" id="passwordModal">
+    <div class="modal-box">
+      <h2><i class="fas fa-lock" style="color: var(--red);"></i> Доступ к управлению</h2>
+      <p>Введите пароль, чтобы добавлять и удалять карточки</p>
+      <input type="password" id="passwordInput" placeholder="Введите пароль..." maxlength="20" />
+      <button class="btn-unlock" id="unlockBtn">
+        <i class="fas fa-unlock-alt"></i> Войти
+      </button>
+      <div class="error-msg" id="passwordError">
+        <i class="fas fa-exclamation-circle"></i> Неверный пароль. Попробуйте снова.
+      </div>
+      <div class="hint">Пароль: <strong style="color: var(--blue);">1234</strong></div>
+    </div>
+  </div>
+
+  <!-- ===== ВСПЛЫВАЮЩЕЕ ОКНО С КАРТОЧКАМИ ===== -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-content">
+      <button class="popup-close" id="popupClose"><i class="fas fa-times"></i></button>
+
+      <div class="popup-title"><i class="fas fa-star"></i> Квартиры недели</div>
+      <div class="popup-subtitle">🔥 Специальные предложения для вас</div>
+
+      <div class="popup-cards" id="popupCards">
+        <!-- 3 карточки загружаются из JS -->
+      </div>
+
+      <div class="popup-bottom">
+        <a href="https://crm.ruspronet.ru/order" target="_blank" class="btn-claim-popup">
+          <i class="fas fa-paper-plane"></i> Оставить заявку
+        </a>
+      </div>
+
+      <!-- Админ-панель внутри попапа -->
+      <div class="popup-admin" id="popupAdmin">
+        <div class="admin-row">
+          <input type="text" id="cardImageUrl" placeholder="Ссылка на фото (URL)" />
+          <button class="btn-admin" id="addCardBtn"><i class="fas fa-plus"></i> Добавить</button>
+          <button class="admin-toggle-btn" id="toggleAdminBtn"><i class="fas fa-eye-slash"></i></button>
+        </div>
+        <div class="admin-status" id="adminStatus">Админ-панель активна</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== МИНИ-ИКОНКА ПОСЛЕ СВЁРТЫВАНИЯ ===== -->
+  <div class="popup-mini-icon" id="popupMiniIcon">
+    <i class="fas fa-star"></i> <span>Квартиры</span>
+  </div>
+
+  <!-- ===== ХЕДЕР ===== -->
   <header class="hero">
     <div class="container">
       <div class="left">
@@ -471,273 +915,4 @@
         <div class="contact-label">Связь со мной</div>
         <div class="contacts-top">
           <a href="tel:+79529155586"><i class="fas fa-phone-alt"></i> +7 (952) 915-55-86</a>
-          <a href="https://t.me/Ivan_Burko" target="_blank"><i class="fab fa-telegram-plane"></i> @Ivan_Burko</a>
-          <a href="https://max.ru/u/f9LHodD0cOIdLJNKd5da-SworHFECeqyQ1QqzqnMtKeEuCe5EXO3qX8h9BU" target="_blank" class="btn-accent-small">
-            <i class="fas fa-external-link-alt"></i> MAX
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- ===== БЛОК "МОИ КАНАЛЫ" – ПЕРЕНЕСЁН ВВЕРХ (СРАЗУ ПОСЛЕ ШАПКИ) ===== -->
-  <section style="padding: 30px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
-    <div class="container">
-      <div class="section-title"><i class="fas fa-bullhorn"></i> Мои каналы</div>
-      <div class="channels-grid">
-        <a href="https://t.me/Novostroiki_NSK_Ivan_Burko" target="_blank" class="channel-card">
-          <i class="fab fa-telegram-plane"></i>
-          <div class="info">
-            <span class="name">Telegram-канал</span>
-            <span class="handle">@Novostroiki_NSK_Ivan_Burko</span>
-          </div>
-        </a>
-        <a href="https://max.ru/id750600259101_biz" target="_blank" class="channel-card secondary">
-          <i class="fas fa-user-circle"></i>
-          <div class="info">
-            <span class="name">MAX-профиль</span>
-            <span class="handle">id750600259101_biz</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== БЛОК 1: КТО Я? ===== -->
-  <section>
-    <div class="container">
-      <div class="section-title"><i class="fas fa-user-tie"></i> Кто я?</div>
-      <div style="background: var(--bg-card); padding: 25px 30px; border-radius: var(--radius); box-shadow: var(--shadow); border-left: 6px solid var(--blue);">
-        <p style="font-size: 1.2rem; color: var(--text-light); margin-bottom: 16px;">
-          <strong>Я Иван Бурко, эксперт по недвижимости.</strong>
-        </p>
-        <ul style="list-style: none; color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">
-          <li><i class="fas fa-check-circle" style="color: var(--red); width: 24px;"></i> Экономлю до 30%, подберу жильё по всей РФ (новостройки, вторичка, ИЖС, курорты)</li>
-          <li><i class="fas fa-check-circle" style="color: var(--red); width: 24px;"></i> Помогу с ипотекой от 3,5% и рассрочкой 0%</li>
-          <li><i class="fas fa-check-circle" style="color: var(--red); width: 24px;"></i> Веду сделку под ключ, стаж 3+ года</li>
-          <li><i class="fas fa-check-circle" style="color: var(--red); width: 24px;"></i> Забираю всю бюрократию и переговоры на себя – клиент только принимает решения</li>
-          <li><i class="fas fa-check-circle" style="color: var(--red); width: 24px;"></i> Приоритетное обслуживание за счёт наработанных личных и корпоративных связей</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== БЛОК 2: НАПРАВЛЕНИЯ ===== -->
-  <section style="background: rgba(255,255,255,0.02);">
-    <div class="container">
-      <div class="section-title"><i class="fas fa-compass"></i> Направления</div>
-      <div class="grid-2col">
-        <div class="item"><i class="fas fa-home"></i><span>Для жизни</span></div>
-        <div class="item"><i class="fas fa-chart-line"></i><span>Для инвесторов</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== БЛОК 3: ОБЪЕКТЫ ===== -->
-  <section>
-    <div class="container">
-      <div class="section-title"><i class="fas fa-building"></i> Объекты</div>
-      <div class="grid-2col">
-        <div class="item"><i class="fas fa-city"></i><span>Новостройки (более 90% городов РФ)</span></div>
-        <div class="item"><i class="fas fa-undo-alt"></i><span>Вторичный рынок</span></div>
-        <div class="item"><i class="fas fa-exchange-alt"></i><span>Переуступка прав требования</span></div>
-        <div class="item"><i class="fas fa-tree"></i><span>Загородная недвижимость (ИЖС)</span></div>
-        <div class="item"><i class="fas fa-umbrella-beach"></i><span>Курортная недвижимость (Сочи, Анапа, Крым, Новороссийск)</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== БЛОК 4: УСЛУГИ ===== -->
-  <section style="background: rgba(255,255,255,0.02);">
-    <div class="container">
-      <div class="section-title"><i class="fas fa-hand-holding-heart"></i> Услуги</div>
-      <div class="grid-2col">
-        <div class="item"><i class="fas fa-comment"></i><span>Бесплатная консультация по рынку</span></div>
-        <div class="item"><i class="fas fa-chess-queen"></i><span>Подбор стратегии покупки с минимальными рисками</span></div>
-        <div class="item"><i class="fas fa-hand-holding-usd"></i><span>Помощь в ипотеке (от заявки до одобрения)</span></div>
-        <div class="item"><i class="fas fa-gavel"></i><span>Полное юридическое сопровождение сделки «под ключ»</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== БЛОК 5: ПРЕИМУЩЕСТВА ===== -->
-  <section>
-    <div class="container">
-      <div class="section-title"><i class="fas fa-star"></i> Преимущества работы</div>
-      <div class="card-grid">
-        <div class="card">
-          <i class="fas fa-percent"></i>
-          <h3>Скидки до 30%</h3>
-          <p>Специальные условия от застройщиков.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-home"></i>
-          <h3>Ипотека</h3>
-          <p>Семейная от 3,5% / стандартная от 8% на весь срок.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-clock"></i>
-          <h3>Рассрочка 0%</h3>
-          <p>Без переплаты на период строительства.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-chart-pie"></i>
-          <h3>Инвесторам</h3>
-          <p>Лучшие условия на курортную недвижимость, уникальные объекты (апартаменты + коммерция) в Новосибирске.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== БЛОК 6: КАК ВЫ МОЖЕТЕ ЗАРАБОТАТЬ? ===== -->
-  <section style="background: rgba(255,255,255,0.02);">
-    <div class="container">
-      <div class="section-title"><i class="fas fa-coins"></i> Как Вы можете заработать?</div>
-      <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 25px;">
-        Реферальная программа – вы просто передаёте контакт, остальное делаю я.
-      </p>
-      <div class="grid-2col">
-        <div class="item"><i class="fas fa-user-plus"></i><span>Вы передаёте контакт</span></div>
-        <div class="item"><i class="fas fa-user-check"></i><span>Клиент получает скидки и преференции</span></div>
-        <div class="item"><i class="fas fa-chart-line"></i><span>Я провожу сделку, информируя вас на каждом этапе</span></div>
-      </div>
-      <div style="margin-top: 25px; background: var(--bg-card); padding: 20px 24px; border-radius: var(--radius); box-shadow: var(--shadow); border-left: 6px solid var(--red);">
-        <p style="font-size: 1.2rem; font-weight: 600; color: var(--white);">
-          <i class="fas fa-arrow-right" style="color: var(--red);"></i>
-          Ваше вознаграждение: <span style="color: var(--red);">от 10 000 до 100 000 ₽</span>
-          в зависимости от сложности сделки и сегмента недвижимости.
-        </p>
-      </div>
-      <div class="earn-banner">
-        <h3><i class="fas fa-hand-holding-usd"></i> Знаете кого-то, кто ищет квартиру?</h3>
-        <div class="big-number">Вы только что заработали ~ 30 000!</div>
-        <div class="sub">*Среднее вознаграждение партнёру за сделку</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== БЛОК 7: КАК РАССЧИТЫВАЕТСЯ ВОЗНАГРАЖДЕНИЕ? ===== -->
-  <section>
-    <div class="container">
-      <div class="section-title"><i class="fas fa-calculator"></i> Как рассчитывается вознаграждение?</div>
-      <div class="table-wrap">
-        <table class="reward-table">
-          <thead><tr><th>Сегмент</th><th>Вознаграждение (₽)</th></tr></thead>
-          <tbody>
-            <tr><td>Вторичный рынок</td><td>от 10 000 до 20 000</td></tr>
-            <tr><td>Новостройка</td><td>от 15 000 до 30 000</td></tr>
-            <tr><td>ИЖС (строительство дома)</td><td>от 20 000 до 50 000</td></tr>
-            <tr><td>Курортная недвижимость</td><td>от 20 000 до 100 000</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="note">
-        <i class="fas fa-info-circle"></i>
-        <strong>Важно:</strong> клиент <strong>не платит комиссию</strong> при покупке новостройки или строительстве дома. Даже на вторичном рынке выгода от сделки превышает расходы.
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== БЛОК 8: ГДЕ ВЗЯТЬ КЛИЕНТОВ? ===== -->
-  <section style="background: rgba(255,255,255,0.02);">
-    <div class="container">
-      <div class="section-title"><i class="fas fa-users"></i> Где взять клиентов?</div>
-      <div style="background: var(--bg-card); padding: 25px 30px; border-radius: var(--radius); box-shadow: var(--shadow); border-left: 6px solid var(--blue);">
-        <p style="font-size: 1.1rem; color: var(--text-light);">
-          <i class="fas fa-lightbulb" style="color: var(--red); margin-right: 12px;"></i>
-          Ваши клиенты – это ваши знакомые, коллеги, друзья, которые планируют покупку или продажу недвижимости.
-          Просто поделитесь ссылкой на этот сайт или передайте мой контакт – я сделаю всё остальное.
-          Каждая рекомендация приносит вам доход от 10 000 до 100 000 ₽.
-        </p>
-        <p style="margin-top: 16px; color: var(--text-muted);">
-          <i class="fas fa-check-circle" style="color: var(--red);"></i> Расскажите о программе в соцсетях, мессенджерах, на работе.
-        </p>
-        <p style="color: var(--text-muted);">
-          <i class="fas fa-check-circle" style="color: var(--red);"></i> Разместите мой баннер или визитку в своих каналах.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== БЛОК 9: ПРИМЕРЫ ЗАРАБОТКА ===== -->
-  <section>
-    <div class="container">
-      <div class="section-title"><i class="fas fa-rocket"></i> Примеры заработка</div>
-      <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 25px;">Всё зависит от вашей активности. Потолка нет!</p>
-      <div class="grid-2col">
-        <div class="item" style="flex-direction: column; align-items: flex-start; border-left-color: var(--red);">
-          <h4 style="color: var(--white);">Пассивный</h4>
-          <span>~ 5 рекомендаций</span>
-          <span style="font-size: 1.2rem; font-weight: 700; color: var(--red);">50 000 – 500 000 ₽</span>
-        </div>
-        <div class="item" style="flex-direction: column; align-items: flex-start; border-left-color: var(--blue);">
-          <h4 style="color: var(--white);">Активный</h4>
-          <span>~ 10 рекомендаций</span>
-          <span style="font-size: 1.2rem; font-weight: 700; color: var(--red);">100 000 – 1 000 000 ₽</span>
-        </div>
-        <div class="item" style="flex-direction: column; align-items: flex-start; border-left-color: var(--red);">
-          <h4 style="color: var(--white);">Проактивный</h4>
-          <span>~ 20 рекомендаций</span>
-          <span style="font-size: 1.2rem; font-weight: 700; color: var(--red);">200 000 – 2 000 000 ₽</span>
-        </div>
-      </div>
-      <div style="text-align: center; margin-top: 25px; font-size: 1.5rem; font-weight: 700; color: var(--red);">
-        ⚡ Потолка нет! Зарабатывай столько, сколько тебе нужно!
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== БЛОК 10: ОСТАВИТЬ ЗАЯВКУ ===== -->
-  <section style="background: rgba(255,255,255,0.02);">
-    <div class="container">
-      <div class="section-title"><i class="fas fa-pen-alt"></i> Оставить заявку</div>
-      <p style="color: var(--text-muted); text-align: center; margin-bottom: 30px; font-size: 1.1rem;">
-        Заполните форму – я свяжусь с вами и сделаю <strong>бесплатную подборку</strong> объектов под ваш запрос.
-      </p>
-      <div style="text-align: center;">
-        <a href="https://crm.ruspronet.ru/order" target="_blank" class="btn-claim">
-          <i class="fas fa-paper-plane"></i> Перейти к заявке
-        </a>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 16px;">
-          <i class="fas fa-shield-alt" style="color: var(--blue);"></i> Вы будете перенаправлены на наш защищённый портал для оформления заявки
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== БЛОК 11: КОНТАКТЫ ===== -->
-  <section style="padding-bottom: 30px;">
-    <div class="container">
-      <div class="section-title"><i class="fas fa-address-card"></i> Контакты</div>
-      <div class="contacts-block">
-        <div class="container">
-          <div class="col">
-            <div class="label">📞 Связь со мной</div>
-            <a href="tel:+79529155586"><i class="fas fa-phone-alt"></i> +7 (952) 915-55-86</a>
-            <a href="https://t.me/Ivan_Burko" target="_blank"><i class="fab fa-telegram-plane"></i> @Ivan_Burko</a>
-            <a href="https://max.ru/u/f9LHodD0cOIdLJNKd5da-SworHFECeqyQ1QqzqnMtKeEuCe5EXO3qX8h9BU" target="_blank" class="btn-max">
-              <i class="fas fa-external-link-alt"></i> MAX (личный)
-            </a>
-          </div>
-          <div class="col">
-            <div class="label">📢 Мои каналы</div>
-            <a href="https://t.me/Novostroiki_NSK_Ivan_Burko" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram-канал</a>
-            <a href="https://max.ru/id750600259101_biz" target="_blank" class="btn-max" style="background: var(--red); border-color: var(--blue);">
-              <i class="fas fa-user-circle"></i> MAX-профиль
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">© 2026 <span>Иван Бурко</span>. Все права защищены.</div>
-  </footer>
-
-  <a href="https://crm.ruspronet.ru/order" target="_blank" class="float-button">
-    <i class="fas fa-pen-fancy"></i> Оставить заявку
-  </a>
-
-</body>
-</html>
+          <a href="https://
