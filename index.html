@@ -829,7 +829,7 @@
     </div>
   </div>
 
-  <!-- ===== ВСПЛЫВАЮЩЕЕ ОКНО С КАРТОЧКАМИ ===== -->
+   <!-- ===== ВСПЛЫВАЮЩЕЕ ОКНО С КАРТОЧКАМИ ===== -->
   <div class="popup-overlay" id="popupOverlay">
     <div class="popup-content">
       <button class="popup-close" id="popupClose"><i class="fas fa-times"></i></button>
@@ -847,12 +847,31 @@
         </a>
       </div>
 
+      <!-- ===== КНОПКА УПРАВЛЕНИЯ ===== -->
+      <div style="text-align: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button id="adminToggleBtn" style="
+          background: var(--blue);
+          color: white;
+          border: 2px solid var(--red);
+          padding: 10px 30px;
+          border-radius: 40px;
+          font-size: 1rem;
+          font-weight: 700;
+          cursor: pointer;
+          transition: 0.3s;
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+        ">
+          <i class="fas fa-cog"></i> Управление карточками
+        </button>
+      </div>
+
       <!-- Админ-панель внутри попапа -->
       <div class="popup-admin" id="popupAdmin">
         <div class="admin-row">
           <input type="text" id="cardImageUrl" placeholder="Ссылка на фото (URL)" />
           <button class="btn-admin" id="addCardBtn"><i class="fas fa-plus"></i> Добавить</button>
-          <button class="admin-toggle-btn" id="toggleAdminBtn"><i class="fas fa-eye-slash"></i></button>
         </div>
         <div class="admin-status" id="adminStatus">Админ-панель активна</div>
       </div>
@@ -1124,20 +1143,18 @@
     <i class="fas fa-pen-fancy"></i> Оставить заявку
   </a>
 
-  <!-- ===== СКРИПТ ===== -->
+    <!-- ===== СКРИПТ ===== -->
   <script>
     // ===== УПРАВЛЕНИЕ ПОПАПОМ =====
     const popupOverlay = document.getElementById('popupOverlay');
     const popupClose = document.getElementById('popupClose');
     const popupMiniIcon = document.getElementById('popupMiniIcon');
 
-    // Закрыть попап при нажатии на крестик
     popupClose.addEventListener('click', function() {
       popupOverlay.classList.add('hidden');
       popupMiniIcon.classList.add('visible');
     });
 
-    // Открыть попап при нажатии на мини-иконку
     popupMiniIcon.addEventListener('click', function() {
       popupOverlay.classList.remove('hidden');
       popupMiniIcon.classList.remove('visible');
@@ -1170,7 +1187,20 @@
           <div class="popup-card">
             <img src="${card.image}" alt="Квартира ${index+1}" />
             <span class="card-number">${index+1}</span>
-            <button class="delete-btn-card" data-index="${index}">
+            <button class="delete-btn-card" data-index="${index}" style="
+              position: absolute;
+              bottom: 8px;
+              right: 8px;
+              background: rgba(213,43,30,0.85);
+              border: none;
+              color: white;
+              padding: 4px 12px;
+              border-radius: 20px;
+              font-size: 0.65rem;
+              cursor: pointer;
+              transition: 0.2s;
+              display: block;
+            ">
               <i class="fas fa-trash"></i> Удалить
             </button>
           </div>
@@ -1180,7 +1210,7 @@
       document.querySelectorAll('.delete-btn-card').forEach(btn => {
         btn.addEventListener('click', function() {
           if (!isUnlocked) {
-            alert('Сначала введите пароль! Нажмите на 🔑 "Управление"');
+            alert('Сначала введите пароль! Нажмите на ⚙ "Управление карточками"');
             return;
           }
           const index = parseInt(this.dataset.index);
@@ -1195,7 +1225,7 @@
     let isAdminVisible = false;
     let isUnlocked = false;
     const popupAdmin = document.getElementById('popupAdmin');
-    const toggleAdminBtn = document.getElementById('toggleAdminBtn');
+    const adminToggleBtn = document.getElementById('adminToggleBtn');
     const addCardBtn = document.getElementById('addCardBtn');
     const cardImageUrl = document.getElementById('cardImageUrl');
 
@@ -1205,17 +1235,14 @@
     const passwordError = document.getElementById('passwordError');
     const CORRECT_PASSWORD = '2940';
 
-    // Показываем кнопку "Управление" ВСЕГДА
-    toggleAdminBtn.style.display = 'inline-flex';
-
-    // При клике на кнопку "Управление"
-    toggleAdminBtn.addEventListener('click', function() {
+    // При клике на кнопку "Управление карточками"
+    adminToggleBtn.addEventListener('click', function() {
       if (isUnlocked) {
         isAdminVisible = !isAdminVisible;
         popupAdmin.classList.toggle('visible', isAdminVisible);
-        toggleAdminBtn.innerHTML = isAdminVisible ? 
-          '🔑 Управление (скрыть)' : 
-          '🔑 Управление';
+        adminToggleBtn.innerHTML = isAdminVisible ? 
+          '<i class="fas fa-cog"></i> Скрыть управление' : 
+          '<i class="fas fa-cog"></i> Управление карточками';
         document.getElementById('adminStatus').textContent = 
           isAdminVisible ? 'Админ-панель активна' : 'Админ-панель скрыта';
       } else {
@@ -1233,7 +1260,7 @@
         isUnlocked = true;
         isAdminVisible = true;
         popupAdmin.classList.add('visible');
-        toggleAdminBtn.innerHTML = '🔑 Управление (скрыть)';
+        adminToggleBtn.innerHTML = '<i class="fas fa-cog"></i> Скрыть управление';
         document.getElementById('adminStatus').textContent = 'Админ-панель активна';
       } else {
         passwordError.classList.add('show');
@@ -1255,7 +1282,7 @@
     // Добавить карточку (только если пароль введён)
     addCardBtn.addEventListener('click', function() {
       if (!isUnlocked) {
-        alert('Сначала введите пароль! Нажмите на 🔑 "Управление"');
+        alert('Сначала введите пароль! Нажмите на ⚙ "Управление карточками"');
         return;
       }
       const url = cardImageUrl.value.trim();
