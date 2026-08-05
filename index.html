@@ -1143,17 +1143,19 @@
       popupMiniIcon.classList.remove('visible');
     });
 
-     <script>
+       <script>
     // ===== УПРАВЛЕНИЕ ПОПАПОМ =====
     const popupOverlay = document.getElementById('popupOverlay');
     const popupClose = document.getElementById('popupClose');
     const popupMiniIcon = document.getElementById('popupMiniIcon');
 
+    // Закрыть попап при нажатии на крестик
     popupClose.addEventListener('click', function() {
       popupOverlay.classList.add('hidden');
       popupMiniIcon.classList.add('visible');
     });
 
+    // Открыть попап при нажатии на мини-иконку
     popupMiniIcon.addEventListener('click', function() {
       popupOverlay.classList.remove('hidden');
       popupMiniIcon.classList.remove('visible');
@@ -1196,7 +1198,7 @@
       document.querySelectorAll('.delete-btn-card').forEach(btn => {
         btn.addEventListener('click', function() {
           if (!isUnlocked) {
-            alert('Сначала введите пароль! Нажмите на 👁');
+            alert('Сначала введите пароль! Нажмите на 🔑 "Управление"');
             return;
           }
           const index = parseInt(this.dataset.index);
@@ -1221,16 +1223,22 @@
     const passwordError = document.getElementById('passwordError');
     const CORRECT_PASSWORD = '2940';
 
+    // Показываем кнопку "Управление" ВСЕГДА
+    toggleAdminBtn.style.display = 'inline-flex';
+
+    // При клике на кнопку "Управление"
     toggleAdminBtn.addEventListener('click', function() {
       if (isUnlocked) {
+        // Если пароль уже введён — просто скрываем/показываем админку
         isAdminVisible = !isAdminVisible;
         popupAdmin.classList.toggle('visible', isAdminVisible);
         toggleAdminBtn.innerHTML = isAdminVisible ? 
-          '<i class="fas fa-eye"></i>' : 
-          '<i class="fas fa-eye-slash"></i>';
+          '🔑 Управление (скрыть)' : 
+          '🔑 Управление';
         document.getElementById('adminStatus').textContent = 
           isAdminVisible ? 'Админ-панель активна' : 'Админ-панель скрыта';
       } else {
+        // Если пароль не введён — показываем модалку
         passwordModal.classList.add('active');
         passwordInput.value = '';
         passwordError.classList.remove('show');
@@ -1238,32 +1246,36 @@
       }
     });
 
+    // Проверка пароля
     unlockBtn.addEventListener('click', function() {
       if (passwordInput.value === CORRECT_PASSWORD) {
         passwordModal.classList.remove('active');
         isUnlocked = true;
         isAdminVisible = true;
         popupAdmin.classList.add('visible');
-        toggleAdminBtn.innerHTML = '<i class="fas fa-eye"></i>';
+        toggleAdminBtn.innerHTML = '🔑 Управление (скрыть)';
         document.getElementById('adminStatus').textContent = 'Админ-панель активна';
       } else {
         passwordError.classList.add('show');
       }
     });
 
+    // Закрытие модалки по клику вне окна
     passwordModal.addEventListener('click', function(e) {
       if (e.target === this) {
         this.classList.remove('active');
       }
     });
 
+    // Enter в поле пароля
     passwordInput.addEventListener('keydown', function(e) {
       if (e.key === 'Enter') unlockBtn.click();
     });
 
+    // Добавить карточку (только если пароль введён)
     addCardBtn.addEventListener('click', function() {
       if (!isUnlocked) {
-        alert('Сначала введите пароль! Нажмите на 👁');
+        alert('Сначала введите пароль! Нажмите на 🔑 "Управление"');
         return;
       }
       const url = cardImageUrl.value.trim();
