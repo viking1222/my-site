@@ -369,7 +369,7 @@
     .popup-mini-icon i { font-size: 1.2rem; }
     .popup-mini-icon.visible { display: flex; }
 
-    .popup-content {
+        .popup-content {
       background: rgba(26, 31, 42, 0.92);
       backdrop-filter: blur(12px);
       border-radius: 20px;
@@ -382,6 +382,10 @@
       position: relative;
       transition: 0.3s;
       overflow-y: auto;
+      scrollbar-width: none;
+    }
+    .popup-content::-webkit-scrollbar {
+      display: none;
     }
 
     .popup-close {
