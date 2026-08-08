@@ -929,8 +929,9 @@
     <i class="fas fa-pen-fancy"></i> Оставить заявку
   </a>
 
-  <!-- ===== СКРИПТ ДЛЯ ЗАКРЫТИЯ ПОПАПА ===== -->
-    <script>
+    <!-- ===== СКРИПТ ===== -->
+  <script>
+    // ===== УПРАВЛЕНИЕ ПОПАПОМ =====
     const popupOverlay = document.getElementById('popupOverlay');
     const popupClose = document.getElementById('popupClose');
     const showPopupBtn = document.getElementById('showPopupBtn');
@@ -948,25 +949,139 @@
     // Закрыть попап при нажатии на крестик
     popupClose.addEventListener('click', function() {
       popupOverlay.classList.add('hidden');
-      showButton(); // Показываем кнопку "Квартиры"
+      showButton();
     });
 
     // Закрыть попап при клике на фон
     popupOverlay.addEventListener('click', function(e) {
       if (e.target === this) {
         popupOverlay.classList.add('hidden');
-        showButton(); // Показываем кнопку "Квартиры"
+        showButton();
       }
     });
 
     // Открыть попап при нажатии на кнопку "Квартиры"
     showPopupBtn.addEventListener('click', function() {
       popupOverlay.classList.remove('hidden');
-      hideButton(); // Скрываем кнопку "Квартиры"
+      hideButton();
     });
-  </script>
 
-</body>
-</html>
+    // ===== ОТКРЫТИЕ КАРТОЧКИ НА ВЕСЬ ЭКРАН =====
+    function openFullscreen(imageUrl, index) {
+      // Создаём затемнённый фон
+      const overlay = document.createElement('div');
+      overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.92);
+        backdrop-filter: blur(8px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 99999;
+        cursor: pointer;
+        animation: fadeIn 0.3s ease;
+      `;
+      
+      // Контейнер для картинки
+      const container = document.createElement('div');
+      container.style.cssText = `
+        max-width: 90%;
+        max-height: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      `;
+      
+      // Картинка
+      const img = document.createElement('img');
+      img.src = imageUrl;
+      img.style.cssText = `
+        max-width: 100%;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 12px;
+        box-shadow: 0 0 60px rgba(0,0,0,0.8);
+        border: 2px solid rgba(255,255,255,0.1);
+      `;
+      
+      // Кнопка закрытия
+      const closeBtn = document.createElement('button');
+      closeBtn.innerHTML = '✕';
+      closeBtn.style.cssText = `
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        background: var(--red);
+        color: white;
+        border: none;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        font-size: 1.6rem;
+        cursor: pointer;
+        transition: 0.3s;
+        z-index: 10;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      `;
+      closeBtn.onmouseover = () => closeBtn.style.transform = 'scale(1.1)';
+      closeBtn.onmouseout = () => closeBtn.style.transform = 'scale(1)';
+      
+      // Номер квартиры
+      const numberLabel = document.createElement('div');
+      numberLabel.style.cssText = `
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        background: var(--blue);
+        color: white;
+        padding: 8px 18px;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-weight: 700;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      `;
+      numberLabel.textContent = `Квартира ${index + 1}`;
+      
+      // Собираем всё вместе
+      container.appendChild(img);
+      container.appendChild(closeBtn);
+      container.appendChild(numberLabel);
+      overlay.appendChild(container);
+      document.body.appendChild(overlay);
+      
+      // Функция закрытия
+      const closeFullscreen = () => {
+        overlay.style.animation = 'fadeOut 0.3s ease';
+        setTimeout(() => overlay.remove(), 300);
+      };
+      
+      // Закрытие по клику на фон
+      overlay.addEventListener('click', function(e) {
+        if (e.target === this) closeFullscreen();
+      });
+      
+      // Закрытие по кнопке ✕
+      closeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        closeFullscreen();
+      });
+      
+      // Закрытие по ESC
+      document.addEventListener('keydown', function escHandler(e) {
+        if (e.key === 'Escape') {
+          closeFullscreen();
+          document.removeEventListener('keydown', escHandler);
+        }
+      });
+    }
+  </script>
 
   <!-- ===== Р
