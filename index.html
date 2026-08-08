@@ -423,9 +423,216 @@
     .earn-banner h3 i { color: var(--red); margin-right: 12px; }
     .earn-banner .big-number { font-size: 3rem; font-weight: 900; color: var(--red); text-shadow: 0 0 20px rgba(213,43,30,0.3); }
     .earn-banner .sub { font-size: 1.1rem; color: var(--text-muted); margin-top: 6px; }
+
+    /* ===== ВСПЛЫВАЮЩЕЕ ОКНО ===== */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      transition: 0.3s;
+    }
+    .popup-overlay.hidden {
+      display: none !important;
+    }
+
+    .popup-content {
+      background: rgba(26, 31, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 30px 30px 20px;
+      max-width: 800px;
+      width: 95%;
+      max-height: 90vh;
+      border: 2px solid rgba(0,57,166,0.4);
+      box-shadow: 0 0 60px rgba(0,57,166,0.2);
+      position: relative;
+      transition: 0.3s;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+    .popup-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.6rem;
+      cursor: pointer;
+      transition: 0.2s;
+      z-index: 10;
+    }
+    .popup-close:hover {
+      color: var(--red);
+      transform: rotate(90deg);
+    }
+
+    .popup-title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .popup-title i { color: var(--red); margin-right: 10px; }
+    .popup-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .popup-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .popup-card {
+      background: rgba(255,255,255,0.04);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: 0.3s;
+      aspect-ratio: 9 / 16;
+      position: relative;
+      cursor: pointer;
+    }
+    .popup-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--blue);
+    }
+    .popup-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: var(--bg-dark);
+      padding: 4px;
+    }
+    .popup-card .card-number {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .popup-bottom {
+      display: flex;
+      justify-content: center;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .popup-bottom .btn-claim-popup {
+      background: var(--blue);
+      color: white;
+      padding: 14px 50px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid var(--red);
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .popup-bottom .btn-claim-popup:hover {
+      background: var(--red);
+      border-color: var(--blue);
+      transform: scale(1.02);
+    }
+
+    @media (max-width: 700px) {
+      .popup-cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+      .popup-content {
+        padding: 20px 16px 16px;
+        max-height: 85vh;
+      }
+      .popup-title { font-size: 1.1rem; }
+      .popup-subtitle { font-size: 0.8rem; }
+      .popup-bottom .btn-claim-popup {
+        padding: 10px 24px;
+        font-size: 0.9rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .popup-cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+      }
+      .popup-content {
+        padding: 14px 10px 12px;
+        border-radius: 12px;
+      }
+      .popup-title { font-size: 0.9rem; }
+      .popup-subtitle { font-size: 0.7rem; margin-bottom: 12px; }
+      .popup-close { font-size: 1.2rem; top: 6px; right: 10px; }
+      .popup-bottom .btn-claim-popup {
+        padding: 8px 18px;
+        font-size: 0.75rem;
+      }
+      .popup-card .card-number { font-size: 0.5rem; padding: 1px 6px; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- ===== ВСПЛЫВАЮЩЕЕ ОКНО С КАРТОЧКАМИ ===== -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-content">
+      <button class="popup-close" id="popupClose"><i class="fas fa-times"></i></button>
+
+      <div class="popup-title"><i class="fas fa-star"></i> Квартиры недели</div>
+      <div class="popup-subtitle">🔥 Специальные предложения для вас</div>
+
+      <div class="popup-cards" id="popupCards">
+        <!-- ===== КВАРТИРА 1 ===== -->
+        <div class="popup-card" onclick="openFullscreen('https://i.ibb.co/Jjw5wPHq/9ccb42f3-6b02-470c-a90f-33225fd17d7f.jpg', 0)">
+          <img src="https://i.ibb.co/Jjw5wPHq/9ccb42f3-6b02-470c-a90f-33225fd17d7f.jpg" alt="Квартира 1" />
+          <span class="card-number">1</span>
+        </div>
+
+        <!-- ===== КВАРТИРА 2 ===== -->
+        <div class="popup-card" onclick="openFullscreen('https://i.ibb.co/9kMPLQYY/9be3cb59-e62e-419b-9061-e03f3fc6ddf0.jpg', 1)">
+          <img src="https://i.ibb.co/9kMPLQYY/9be3cb59-e62e-419b-9061-e03f3fc6ddf0.jpg" alt="Квартира 2" />
+          <span class="card-number">2</span>
+        </div>
+
+        <!-- ===== КВАРТИРА 3 ===== -->
+        <div class="popup-card" onclick="openFullscreen('https://i.ibb.co/zhNyWgMw/a2f309bb-3834-472f-9f82-769bf10bb8c3.jpg', 2)">
+          <img src="https://i.ibb.co/zhNyWgMw/a2f309bb-3834-472f-9f82-769bf10bb8c3.jpg" alt="Квартира 3" />
+          <span class="card-number">3</span>
+        </div>
+      </div>
+
+      <div class="popup-bottom">
+        <a href="https://crm.ruspronet.ru/order" target="_blank" class="btn-claim-popup">
+          <i class="fas fa-info-circle"></i> Узнать подробнее
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== ХЕДЕР ===== -->
   <header class="hero">
@@ -589,113 +796,4 @@
       <div class="section-title"><i class="fas fa-calculator"></i> Как рассчитывается вознаграждение?</div>
       <div class="table-wrap">
         <table class="reward-table">
-          <thead><tr><th>Сегмент</th><th>Вознаграждение (₽)</th></tr></thead>
-          <tbody>
-            <tr><td>Вторичный рынок</td><td>от 10 000 до 20 000</td></tr>
-            <tr><td>Новостройка</td><td>от 15 000 до 30 000</td></tr>
-            <tr><td>ИЖС (строительство дома)</td><td>от 20 000 до 50 000</td></tr>
-            <tr><td>Курортная недвижимость</td><td>от 20 000 до 100 000</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="note">
-        <i class="fas fa-info-circle"></i>
-        <strong>Важно:</strong> клиент <strong>не платит комиссию</strong> при покупке новостройки.
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ГДЕ ВЗЯТЬ КЛИЕНТОВ ===== -->
-  <section style="background: rgba(255,255,255,0.02);">
-    <div class="container">
-      <div class="section-title"><i class="fas fa-users"></i> Где взять клиентов?</div>
-      <div style="background: var(--bg-card); padding: 25px 30px; border-radius: var(--radius); box-shadow: var(--shadow); border-left: 6px solid var(--blue);">
-        <p style="font-size: 1.1rem; color: var(--text-light);">
-          <i class="fas fa-lightbulb" style="color: var(--red); margin-right: 12px;"></i>
-          Ваши клиенты – это ваши знакомые, коллеги, друзья. Просто поделитесь ссылкой на этот сайт или передайте мой контакт.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ПРИМЕРЫ ЗАРАБОТКА ===== -->
-  <section>
-    <div class="container">
-      <div class="section-title"><i class="fas fa-rocket"></i> Примеры заработка</div>
-      <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 25px;">Всё зависит от вашей активности. Потолка нет!</p>
-      <div class="grid-2col">
-        <div class="item" style="flex-direction: column; align-items: flex-start; border-left-color: var(--red);">
-          <h4 style="color: var(--white);">Пассивный</h4>
-          <span>~ 5 рекомендаций</span>
-          <span style="font-size: 1.2rem; font-weight: 700; color: var(--red);">50 000 – 500 000 ₽</span>
-        </div>
-        <div class="item" style="flex-direction: column; align-items: flex-start; border-left-color: var(--blue);">
-          <h4 style="color: var(--white);">Активный</h4>
-          <span>~ 10 рекомендаций</span>
-          <span style="font-size: 1.2rem; font-weight: 700; color: var(--red);">100 000 – 1 000 000 ₽</span>
-        </div>
-        <div class="item" style="flex-direction: column; align-items: flex-start; border-left-color: var(--red);">
-          <h4 style="color: var(--white);">Проактивный</h4>
-          <span>~ 20 рекомендаций</span>
-          <span style="font-size: 1.2rem; font-weight: 700; color: var(--red);">200 000 – 2 000 000 ₽</span>
-        </div>
-      </div>
-      <div style="text-align: center; margin-top: 25px; font-size: 1.5rem; font-weight: 700; color: var(--red);">
-        ⚡ Потолка нет! Зарабатывай столько, сколько тебе нужно!
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ОСТАВИТЬ ЗАЯВКУ ===== -->
-  <section style="background: rgba(255,255,255,0.02);">
-    <div class="container">
-      <div class="section-title"><i class="fas fa-pen-alt"></i> Оставить заявку</div>
-      <p style="color: var(--text-muted); text-align: center; margin-bottom: 30px; font-size: 1.1rem;">
-        Заполните форму – я свяжусь с вами и сделаю <strong>бесплатную подборку</strong> объектов.
-      </p>
-      <div style="text-align: center;">
-        <a href="https://crm.ruspronet.ru/order" target="_blank" class="btn-claim">
-          <i class="fas fa-paper-plane"></i> Перейти к заявке
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== КОНТАКТЫ ===== -->
-  <section style="padding-bottom: 30px;">
-    <div class="container">
-      <div class="section-title"><i class="fas fa-address-card"></i> Контакты</div>
-      <div class="contacts-block">
-        <div class="container">
-          <div class="col">
-            <div class="label">📞 Связь со мной</div>
-            <a href="tel:+79529155586"><i class="fas fa-phone-alt"></i> +7 (952) 915-55-86</a>
-            <a href="https://t.me/Ivan_Burko" target="_blank"><i class="fab fa-telegram-plane"></i> @Ivan_Burko</a>
-            <a href="https://max.ru/u/f9LHodD0cOIdLJNKd5da-SworHFECeqyQ1QqzqnMtKeEuCe5EXO3qX8h9BU" target="_blank" class="btn-max">
-              <i class="fas fa-external-link-alt"></i> MAX (личный)
-            </a>
-          </div>
-          <div class="col">
-            <div class="label">📢 Мои каналы</div>
-            <a href="https://t.me/Novostroiki_NSK_Ivan_Burko" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram-канал</a>
-            <a href="https://max.ru/id750600259101_biz" target="_blank" class="btn-max" style="background: var(--red); border-color: var(--blue);">
-              <i class="fas fa-user-circle"></i> MAX-профиль
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ФУТЕР ===== -->
-  <footer>
-    <div class="container">© 2026 <span>Иван Бурко</span>. Все права защищены.</div>
-  </footer>
-
-  <!-- ===== ПЛАВАЮЩАЯ КНОПКА ===== -->
-  <a href="https://crm.ruspronet.ru/order" target="_blank" class="float-button">
-    <i class="fas fa-pen-fancy"></i> Оставить заявку
-  </a>
-
-</body>
-</html>
+          <thead><tr><th>Сег
