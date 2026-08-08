@@ -899,26 +899,70 @@
     <div class="container">© 2026 <span>Иван Бурко</span>. Все права защищены.</div>
   </footer>
 
+    <!-- ===== КНОПКА "КВАРТИРЫ" ПОСЛЕ ЗАКРЫТИЯ ПОПАПА ===== -->
+  <button id="showPopupBtn" style="
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    background: var(--blue);
+    color: white;
+    padding: 14px 22px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    border: 2px solid var(--red);
+    box-shadow: 0 4px 24px rgba(0,57,166,0.5);
+    cursor: pointer;
+    transition: 0.3s;
+    display: none;
+    z-index: 9998;
+    align-items: center;
+    gap: 10px;
+  "
+  onmouseover="this.style.transform='scale(1.05)'"
+  onmouseout="this.style.transform='scale(1)'">
+    <i class="fas fa-star"></i> Квартиры
+  </button>
+
   <!-- ===== ПЛАВАЮЩАЯ КНОПКА ===== -->
   <a href="https://crm.ruspronet.ru/order" target="_blank" class="float-button">
     <i class="fas fa-pen-fancy"></i> Оставить заявку
   </a>
 
   <!-- ===== СКРИПТ ДЛЯ ЗАКРЫТИЯ ПОПАПА ===== -->
-  <script>
+    <script>
     const popupOverlay = document.getElementById('popupOverlay');
     const popupClose = document.getElementById('popupClose');
+    const showPopupBtn = document.getElementById('showPopupBtn');
+
+    // Функция для показа кнопки "Квартиры"
+    function showButton() {
+      showPopupBtn.style.display = 'flex';
+    }
+
+    // Функция для скрытия кнопки "Квартиры"
+    function hideButton() {
+      showPopupBtn.style.display = 'none';
+    }
 
     // Закрыть попап при нажатии на крестик
     popupClose.addEventListener('click', function() {
       popupOverlay.classList.add('hidden');
+      showButton(); // Показываем кнопку "Квартиры"
     });
 
-    // Закрыть попап при клике на фон (за пределами окна)
+    // Закрыть попап при клике на фон
     popupOverlay.addEventListener('click', function(e) {
       if (e.target === this) {
         popupOverlay.classList.add('hidden');
+        showButton(); // Показываем кнопку "Квартиры"
       }
+    });
+
+    // Открыть попап при нажатии на кнопку "Квартиры"
+    showPopupBtn.addEventListener('click', function() {
+      popupOverlay.classList.remove('hidden');
+      hideButton(); // Скрываем кнопку "Квартиры"
     });
   </script>
 
